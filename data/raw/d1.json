@@ -1,0 +1,118 @@
+{"domain":1,"name":"Agentic Architecture & Orchestration","weight":27,"lessons":[
+{"id":"1.1","title":"Agentic Loops","url":"https://claudecertificationguide.com/learn/1-agentic-architecture/1-1-agentic-loops",
+"takeaways":[
+{"q":"What are the four steps of the agentic loop lifecycle?","a":"1) Send request (history + prior tool results) via the Messages API. 2) Inspect stop_reason. 3) If \"tool_use\": execute tools, append tool results to history, send again. 4) If \"end_turn\": done — present the final response."},
+{"q":"What is the ONLY reliable signal for loop control?","a":"The stop_reason field. It is deterministic and unambiguous. Never use natural-language parsing, text-content checks, or arbitrary iteration caps as the primary stopping mechanism."},
+{"q":"Which stop_reason values does a basic loop branch on (exam v1.0)?","a":"\"tool_use\" → continue the loop. \"end_turn\" → terminate."},
+{"q":"Where do agentic loops most commonly break?","a":"Step 3 — tool results MUST be appended to conversation history. Otherwise Claude never sees what the tool returned and has nothing new to act on."},
+{"q":"Beyond tool_use / end_turn, what other stop_reason values must a production loop handle?","a":"pause_turn, max_tokens, stop_sequence, refusal, model_context_window_exceeded. Treat anything other than end_turn as \"not finished — check why\", not as tool_use."},
+{"q":"Model-driven decisions vs pre-configured decision trees — which does the exam favour, and what's the exception?","a":"Model-driven (Claude picks tools from context) because it flexes to unplanned situations. Exception: financial, security, regulatory logic needing deterministic compliance → programmatic enforcement (see 1.4)."},
+{"q":"Name the three loop-termination anti-patterns.","a":"1) Parsing natural language (\"I'm done\"). 2) Arbitrary iteration caps as the primary stop. 3) Checking content[0].type == \"text\" — text can accompany tool_use blocks."},
+{"q":"Common distractor: an iteration cap to fix premature termination. Accept or reject?","a":"Reject. Caps address runaway loops, not premature exits. The fix for premature termination is always to check stop_reason correctly. Caps are fine only as a safety net."}
+],
+"traps":[
+{"trap":"Using response.content[0].type == 'text' to determine loop completion","why":"Claude can return text alongside tool_use blocks in the same response. Text presence does not indicate completion. The stop_reason field is the authoritative signal."},
+{"trap":"Setting arbitrary iteration caps (e.g., 'stop after 10 loops') as the primary stopping mechanism","why":"Iteration caps either cut off useful work or run unnecessary iterations. They are acceptable as a safety net, not as the primary loop control. Use stop_reason instead."},
+{"trap":"Parsing natural language phrases like 'I'm done' or 'task complete' to decide loop termination","why":"Natural language is ambiguous and unreliable. The stop_reason field provides a deterministic, unambiguous signal for loop control."},
+{"trap":"Forcing tool_choice to 'any' to prevent the agent from returning text","why":"This forces tool use even when the agent is genuinely finished, creating an infinite loop. Let the model signal completion naturally via stop_reason."}
+]},
+{"id":"1.2","title":"Multi-Agent Orchestration","url":"https://claudecertificationguide.com/learn/1-agentic-architecture/1-2-orchestration-patterns",
+"takeaways":[
+{"q":"What is the fundamental communication rule in hub-and-spoke orchestration?","a":"All inter-subagent communication flows through the coordinator. Subagents never communicate directly with each other, regardless of efficiency concerns."},
+{"q":"Do subagents inherit the coordinator's conversation history and system prompt?","a":"No. Subagents start with only what's explicitly included in their prompt — no coordinator history, system prompt, or other subagents' results unless passed directly."},
+{"q":"A coordinator invokes the same subagent twice. Does the second call remember the first?","a":"No. Each invocation is completely independent; subagents don't share memory between invocations."},
+{"q":"What three benefits does the exam attribute to hub-and-spoke centralisation?","a":"Observability (single logging point), consistent error handling (uniform recovery policies), and controlled information flow (coordinator decides what context each subagent gets)."},
+{"q":"Should the coordinator route every query through all subagents?","a":"No. It dynamically selects which subagents to invoke based on the query. Simple queries may need only one."},
+{"q":"What must a coordinator do when assigning research to several subagents?","a":"Partition scope distinctly (different subtopics or source types per subagent) to minimise duplication."},
+{"q":"Is one coordinator cycle enough to produce complete output?","a":"No. The coordinator iteratively evaluates synthesis output for gaps and re-delegates with targeted queries until coverage is sufficient."},
+{"q":"Output misses entire categories that were in scope. Where do you trace the failure?","a":"To the coordinator's task decomposition — it likely never assigned those subtopics to any subagent."}
+],
+"traps":[
+{"trap":"Blaming downstream subagents for coverage gaps when the coordinator's task decomposition was too narrow","why":"Subagents research what they are assigned. If the coordinator only assigns solar and wind for renewable energy, nobody covers geothermal or tidal. Trace failures to their origin — the coordinator's decomposition."},
+{"trap":"Assuming subagents share memory or inherit the coordinator's conversation history","why":"Subagents have completely isolated context. Every piece of information must be explicitly passed in the subagent's prompt."},
+{"trap":"Proposing direct inter-subagent communication as an efficiency improvement","why":"It breaks observability, consistent error handling, and controlled information flow. All communication must flow through the coordinator."},
+{"trap":"Adding more subagents to fix a decomposition problem","why":"More subagents just receive equally narrow assignments. The fix is improving the coordinator's decomposition logic."}
+]},
+{"id":"1.3","title":"Subagent Invocation and Context Passing","url":"https://claudecertificationguide.com/learn/1-agentic-architecture/1-3-subagent-invocation-context",
+"takeaways":[
+{"q":"What is the hard requirement for a coordinator to spawn subagents?","a":"The coordinator's allowedTools must include \"Task\" (or \"Agent\", its current name in Claude Code). Without it, no subagent can be invoked however they're defined."},
+{"q":"What three elements does an AgentDefinition specify?","a":"Description (what it does), system prompt (instructions), and tool restrictions (scoped to its role — a few focused tools, not 18)."},
+{"q":"Context-passing Rule 1?","a":"Include complete findings from prior agents in full. Subagents cannot \"look up\" prior results — the coordinator passes everything explicitly."},
+{"q":"Context-passing Rule 2?","a":"Use structured formats separating content from metadata: source URL, document name, page number, confidence alongside every claim, so downstream agents can attribute."},
+{"q":"Context-passing Rule 3?","a":"Coordinator prompts specify goals and quality criteria, not step-by-step procedures — so subagents can adapt to unexpected situations."},
+{"q":"How do you invoke independent subagents with minimum latency?","a":"Emit multiple Task tool calls in a single coordinator response — they spawn in parallel — instead of one per turn."},
+{"q":"fork_session vs --resume?","a":"--resume appends: continues the same session. fork_session branches: a new independent session from a copy of the original's history."},
+{"q":"What metadata should accompany each research finding passed between agents?","a":"claim, source_url, document_name, page_number, confidence, retrieved_by — so synthesis has full attribution."}
+],
+"traps":[
+{"trap":"Assuming subagents automatically have access to the coordinator's conversation history or other subagents' outputs","why":"Subagents have isolated context. Everything they need must be explicitly included in their prompt by the coordinator."},
+{"trap":"Blaming the synthesis agent for missing citations when the real issue is context passing without metadata","why":"The synthesis agent can only cite sources it was given. If the coordinator passes content without URLs and document names, citations are impossible."},
+{"trap":"Proposing sequential subagent invocation for tasks that can run independently","why":"Sequential invocation adds latency. Spawn independent tasks in parallel with multiple Task calls in one coordinator response."},
+{"trap":"Confusing fork_session with --resume","why":"fork_session branches from a copy of history; --resume appends to the same session. Fork to compare approaches, resume to carry on the same work."}
+]},
+{"id":"1.4","title":"Workflow Enforcement and Handoff","url":"https://claudecertificationguide.com/learn/1-agentic-architecture/1-4-workflow-enforcement-handoff",
+"takeaways":[
+{"q":"Prompt-based guidance vs programmatic enforcement — key difference?","a":"Prompt guidance is probabilistic (~90–95%); programmatic enforcement is deterministic (100%)."},
+{"q":"When must you use programmatic enforcement rather than prompts?","a":"Financial, security, and compliance operations where a single failure means monetary loss, breach, or legal penalty. Low-stakes things (formatting) can use prompts."},
+{"q":"How do prerequisite gates enforce ordering?","a":"Code-level checks physically block tool execution until preconditions are met (e.g., identity verified before refund) — the model cannot bypass them."},
+{"q":"What can the SubagentStart hook do — and not do?","a":"Fires when a subagent spawns. Cannot block the spawn, but can add context via additionalContext to the subagent's initial prompt."},
+{"q":"How does SubagentStop enforce quality on subagent output?","a":"Fires at completion; exit code 2 sends the subagent back to work. It cannot rewrite the output directly."},
+{"q":"What fields must a structured human handoff contain?","a":"Customer ID, conversation summary, root cause analysis, refund amount (if applicable), recommended action — humans don't have the transcript."},
+{"q":"How should a multi-concern customer request be handled?","a":"Decompose into distinct items, investigate each (in parallel, shared context), synthesise one unified resolution covering all concerns."},
+{"q":"Why don't stronger system prompts fix high-stakes compliance failures?","a":"They lower the failure rate probabilistically but never reach 0%. Deterministic guarantees need programmatic enforcement."}
+],
+"traps":[
+{"trap":"Enhanced system prompt instructions as the fix for high-stakes compliance failures","why":"Stronger prompts remain probabilistic and can't guarantee a 0% failure rate. Financial/security/compliance needs programmatic enforcement."},
+{"trap":"Few-shot examples as sufficient for guaranteed compliance","why":"Examples improve behaviour probabilistically but can't provide 100% enforcement. Use programmatic prerequisite gates."},
+{"trap":"Routing classifiers proposed to fix per-agent compliance issues","why":"Routing decides which agent handles a request, not workflow enforcement inside an agent. The failure is in the agent's execution sequence."},
+{"trap":"Handoff summaries that omit critical fields like customer ID or recommended action","why":"Human agents can't see transcripts. Handoffs must be self-contained: customer ID, summary, root cause, refund amount, recommended action."}
+]},
+{"id":"1.5","title":"Agent SDK Hooks","url":"https://claudecertificationguide.com/learn/1-agentic-architecture/1-5-agent-sdk-hooks",
+"takeaways":[
+{"q":"When exactly does a PostToolUse hook run?","a":"After the tool executes but before the model processes the result — so it can transform data before the model sees it."},
+{"q":"What can a PreToolUse hook return?","a":"A permissionDecision of allow, deny, ask or defer, plus an optional updatedInput that rewrites the tool's arguments."},
+{"q":"Hooks vs prompts — decision rule?","a":"Hooks for 100%-compliance requirements (a single failure = business loss or legal risk). Prompts for preferences where occasional deviation is acceptable."},
+{"q":"Primary use of PostToolUse in multi-tool environments?","a":"Normalising heterogeneous formats from different tools (dates, units, status codes) into a consistent representation before the model sees them."},
+{"q":"PreToolUse vs PostToolUse for preventing policy violations?","a":"PreToolUse blocks before execution — the action never happens. PostToolUse runs after; the action already occurred."},
+{"q":"Using PostToolUse to block refunds above a threshold — what goes wrong?","a":"The refund has already been processed; the hook can stop the loop but can't undo the transaction. Use PreToolUse."},
+{"q":"Exam keyword signal for hooks?","a":"\"must always\", \"guaranteed\", \"enforce\", compliance/regulatory/audit → hooks / programmatic enforcement, not prompts."}
+],
+"traps":[
+{"trap":"Using PostToolUse hooks to block policy-violating actions","why":"PostToolUse runs after execution — the action has already happened. Use PreToolUse to block before it happens."},
+{"trap":"Enhanced prompt instructions as the solution for 100% compliance requirements","why":"Prompts are probabilistic. Financial, regulatory, and security enforcement needs hooks for deterministic guarantees."},
+{"trap":"Suggesting model-side data transformation instead of PostToolUse hooks for normalisation","why":"Relying on the model to normalise formats introduces inconsistency. PostToolUse hooks guarantee clean, consistent data every time."},
+{"trap":"Confusing the direction of hooks — PostToolUse runs after execution, PreToolUse runs before","why":"PostToolUse transforms results after a tool runs; PreToolUse blocks/modifies calls before. Wrong direction = missing prevention or blocking completed work."}
+]},
+{"id":"1.6","title":"Task Decomposition Strategies","url":"https://claudecertificationguide.com/learn/1-agentic-architecture/1-6-task-decomposition",
+"takeaways":[
+{"q":"When do fixed sequential pipelines fit?","a":"Predictable, structured tasks whose steps are known in advance (code review, document processing). Consistent and reliable, but can't adapt to unexpected findings."},
+{"q":"What is dynamic adaptive decomposition and when is it right?","a":"Subtasks are generated from discoveries at each step, so the plan evolves. Use for open-ended investigation where full scope is unknown upfront (legacy exploration, debugging)."},
+{"q":"Symptoms of attention dilution?","a":"Detailed feedback on early items, increasingly shallow analysis on later ones; identical patterns flagged in one place and approved in another."},
+{"q":"Correct architectural fix for attention dilution?","a":"Per-item local analysis passes (full attention per item) plus a separate cross-file integration pass for cross-cutting concerns."},
+{"q":"Why doesn't a bigger model / larger context window fix attention dilution?","a":"It's an architectural problem, not a capability one. Too many items in one pass gives inconsistent depth regardless of model or context size."},
+{"q":"Orchestration pattern quick map?","a":"Sequential: step needs prior output. Parallel: independent subtasks / latency. Pipeline: specialised stages. Dynamic adaptive: complexity unknown upfront. Hub-and-spoke: coordinator delegates to specialists."}
+],
+"traps":[
+{"trap":"Suggesting a more powerful model or larger context window as the fix for attention dilution","why":"Attention dilution is architectural. The fix is multi-pass architecture, not model power or context size."},
+{"trap":"Proposing a single-pass review with better prompts as equivalent to multi-pass architecture","why":"Better prompts raise average quality but don't fix attention allocation. Multi-pass guarantees each item gets dedicated attention."},
+{"trap":"Applying fixed pipelines to open-ended investigation tasks","why":"Fixed pipelines can't respond to unexpected findings. Use dynamic adaptive decomposition when scope is unknown."},
+{"trap":"Batching files into groups without adding a cross-file integration pass","why":"Batching reduces dilution within a batch but misses cross-batch issues. A dedicated integration pass catches data-flow and consistency problems."}
+]},
+{"id":"1.7","title":"Session State and Resumption","url":"https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption",
+"takeaways":[
+{"q":"Three session management options?","a":"Resume (continuation), fork_session (divergent exploration), fresh start with summary injection (stale context)."},
+{"q":"When should you use --resume?","a":"When prior context is mostly valid and files haven't changed significantly since the last session."},
+{"q":"When is fork_session the right choice?","a":"To explore divergent approaches from the same baseline analysis — an independent branch, original unchanged."},
+{"q":"When should you start fresh with summary injection?","a":"When tool results are stale (files changed, APIs updated), context has degraded, or you need a clean baseline that keeps learned knowledge."},
+{"q":"What is the stale context problem?","a":"Resuming after files changed: the agent reasons from cached tool results that no longer reflect current files → contradictory advice."},
+{"q":"Why is resume-then-re-read insufficient after file changes?","a":"The stale tool results remain in history; the model may still reference old information, especially for tangential decisions."},
+{"q":"What is targeted re-analysis?","a":"Tell the agent which specific files changed and re-analyse only those, rather than re-exploring the whole codebase."},
+{"q":"Stale-context signals?","a":"Repetition, contradictions, ignoring recent results. Fix: fresh start with a curated summary."}
+],
+"traps":[
+{"trap":"Suggesting full re-exploration of a 50-file codebase when only 3 files changed","why":"Wasteful. Tell the agent about the 3 changed files for targeted re-analysis; the prior summary covers the rest."},
+{"trap":"Recommending --resume after files have been modified","why":"Resume keeps stale tool results in history → contradictory advice. Fresh start with summary injection avoids this."},
+{"trap":"Confusing fork_session with --resume","why":"fork_session branches from a copy (original unchanged); --resume appends. In the SDK fork_session is set beside resume — the choice is append or branch."},
+{"trap":"Using fork_session to handle stale context after file changes","why":"A fork inherits the stale tool results. Fresh start with summary injection is the correct fix for stale data."}
+]}
+]}

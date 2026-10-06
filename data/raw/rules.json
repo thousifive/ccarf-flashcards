@@ -1,0 +1,63 @@
+{"source":"https://claudecertificationguide.com/learn/quick-reference","rules":{
+"1":[
+["\"guaranteed\" / \"must always\" / \"enforce\"","Hooks (programmatic enforcement), not prompts"],
+["\"flexibility\" / \"adapt\" / \"unexpected\"","Model-driven decisions"],
+["\"independent subtasks\"","Parallel (multiple Task calls in one response)"],
+["\"each step needs prior output\"","Sequential"],
+["\"premature termination\"","Check stop_reason correctly"],
+["\"runaway agent\"","Iteration cap as a safety net"],
+["\"share context between agents\"","Explicit passing only — no shared memory"],
+["\"complex task, unknown structure\"","Dynamic adaptive decomposition"],
+["\"compliance / regulatory / audit\"","Programmatic enforcement"],
+["Escalation: classifier score vs agent self-reported confidence","Classifier scores are valid triggers; self-reported confidence is not"]
+],
+"2":[
+["Claude keeps picking the wrong tool (small toolkit)","Improve tool descriptions"],
+["Claude keeps picking the wrong tool (20+ tools)","Split by role or consolidate — not descriptions"],
+["Guaranteed structured output","Forced tool_choice for one known schema; tool_choice: any across multiple"],
+["Model should decide whether/which tool","tool_choice: auto"],
+["Must call a tool but can choose which","tool_choice: any"],
+["Search returned no results","Valid empty result — accept it"],
+["API returned 401 / timeout","Access failure — retry or escalate"],
+["Need a custom MCP server","Check community servers first"],
+["Project-wide MCP config","`.mcp.json` in project root"],
+["Personal MCP config","`~/.claude.json`"]
+],
+"3":[
+["Guaranteed enforcement, cannot be bypassed","Hooks (PreToolUse / PostToolUse) or settings"],
+["Style guidance, preferred approach","Instructions in CLAUDE.md"],
+["Applies only to specific file paths","`.claude/rules/` with paths frontmatter"],
+["Reusable workflow with restricted tools","Skills (`.claude/skills/<name>/SKILL.md`)"],
+["Prompt template with arguments","Commands (`.claude/commands/`)"],
+["CI/CD pipeline, automated, non-interactive","-p flag"],
+["Extra rules but keep default coding behaviour","--append-system-prompt (not --system-prompt)"],
+["Fast scripted run, skip project config/hooks/skills","--bare"],
+["Machine-parseable / schema-validated CI output","--output-format json + --json-schema"],
+["Review quality of generated code","Independent session (not the writing session)"],
+["Multiple approaches, complex task","Plan mode first"],
+["Personal preference, not shared","`~/.claude/` (user-level config)"]
+],
+"4":[
+["Guaranteed schema compliance","Forced tool_choice with a specific tool; tool_choice: any when document type unknown"],
+["Output sometimes has wrong format","Add few-shot examples (2–4)"],
+["Model fabricates missing data","Make schema fields optional/nullable"],
+["Validation failed, need to fix","Retry-with-error-feedback (original + failed extraction + error)"],
+["50% cost reduction, bulk processing","Batch API"],
+["Real-time, user-facing / blocking","NOT Batch — use synchronous API"],
+["Model reviewing its own output","Separate instance (not same session)"],
+["Large multi-file input, missing details","Per-file passes + cross-file integration pass"],
+["Instructions alone aren't working","Add few-shot examples"]
+],
+"5":[
+["Details lost over a long conversation","Persistent case-facts block, not progressive summarisation"],
+["Findings need to survive context reset","Scratchpad files for external persistence"],
+["Tool returned nothing","Distinguish valid empty (accept) from access failure (retry)"],
+["High overall accuracy, users report errors","Stratified validation — check per-type accuracy"],
+["Sources disagree","Annotate both with provenance and dates"],
+["Generic error message received","Replace with structured error context"],
+["Model contradicts itself / stale context","Fresh start with summary injection"],
+["Inline citations lost after processing","Structured claim–source mappings"],
+["Stable metrics but quality complaints","Track per-type error rates, not aggregates"],
+["Long task exceeds context window","Scratchpad files and context boundary management"]
+]
+}}

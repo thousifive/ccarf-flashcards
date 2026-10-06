@@ -1,0 +1,96 @@
+{"domain":4,"name":"Prompt Engineering & Structured Output","weight":20,"lessons":[
+{"id":"4.1","title":"System Prompts with Explicit Criteria","url":"https://claudecertificationguide.com/learn/4-prompt-engineering/4-1-system-prompts",
+"takeaways":[
+{"q":"Why do vague instructions like \"be conservative\" fail?","a":"They give no actionable decision boundary — the model can't calibrate what \"conservative\" means across contexts."},
+{"q":"Correct way to define code-review criteria in a prompt?","a":"Explicit categorical criteria: exactly what to flag (bugs, security vulnerabilities) and what to skip (style preferences, local patterns)."},
+{"q":"How do high false positives in one category affect the system?","a":"They destroy developer trust in ALL categories, even accurate ones — trust bleeds across the whole output."},
+{"q":"What do you do with a high-false-positive category while iterating?","a":"Temporarily disable it while refining its prompt, restore trust, then re-enable the improved category."},
+{"q":"Why define severity levels with code examples rather than prose?","a":"Prose forces interpretation of subjective concepts; concrete code examples remove ambiguity and give consistent classification."},
+{"q":"Correct hierarchy for filtering findings?","a":"Explicit criteria first, confidence-based routing second. Never replace criteria with confidence thresholds."},
+{"q":"Why is LLM self-reported confidence poor for filtering?","a":"It's poorly calibrated — often confident about wrong findings and hesitant about right ones. Use it to route to review, not to replace criteria."}
+],
+"traps":[
+{"trap":"Choosing 'be conservative' or 'only report high-confidence findings' as valid prompt improvements","why":"Vague instructions don't improve precision. Specific categorical criteria for what to flag and skip are correct."},
+{"trap":"Assuming confidence thresholds fix false positive problems","why":"Self-reported confidence is poorly calibrated. Explicit criteria with code examples work better; confidence routing only after criteria exist."},
+{"trap":"Keeping all review categories active while iterating on high false-positive categories","why":"FPs in one category destroy trust in all. Temporarily disable problem categories while improving them."}
+]},
+{"id":"4.2","title":"Few-Shot Prompting","url":"https://claudecertificationguide.com/learn/4-prompt-engineering/4-2-few-shot-prompting",
+"takeaways":[
+{"q":"Most effective technique for consistent, well-formatted output?","a":"Few-shot examples — beats more instructions, confidence thresholds, or temperature tweaks."},
+{"q":"Three triggers that say \"add few-shot examples\"?","a":"Detailed instructions still give inconsistent formatting; inconsistent judgement on ambiguous cases; extraction returns empty fields for data that exists."},
+{"q":"How many few-shot examples?","a":"2–4 targeted examples. Fewer than 2 doesn't set a pattern; more than 4 wastes tokens."},
+{"q":"What must each example include beyond input→output?","a":"Reasoning for why that action was chosen over alternatives — so the model generalises the judgement to novel cases."},
+{"q":"Side effect of few-shot examples on extraction?","a":"They reduce hallucination by showing how to handle structural variety without inventing data."},
+{"q":"How do examples reduce false positives in code review?","a":"Show both what to flag AND what to ignore, so the model separates real issues from benign patterns."},
+{"q":"When use tool_use + JSON schema instead of few-shot?","a":"For malformed JSON (syntax). Not for inconsistent formatting or judgement — those are few-shot problems."}
+],
+"traps":[
+{"trap":"Choosing 'add more detailed instructions' when output formatting is inconsistent","why":"If detailed instructions already exist and output is still inconsistent, more instructions won't help. Few-shot examples of the exact format will."},
+{"trap":"Thinking few-shot examples only teach literal pattern-matching","why":"With reasoning included, examples teach the decision principle and generalise to novel patterns."},
+{"trap":"Using confidence thresholds to fix inconsistent judgement calls","why":"Thresholds are poorly calibrated and miss the root cause. Examples showing correct judgement on ambiguous cases fix it directly."}
+]},
+{"id":"4.3","title":"Structured Output with Tool Use","url":"https://claudecertificationguide.com/learn/4-prompt-engineering/4-3-structured-output",
+"takeaways":[
+{"q":"Most reliable way to get schema-compliant JSON?","a":"tool_use with a JSON schema — eliminates JSON syntax errors. Prompt-based JSON can be malformed."},
+{"q":"What does tool_choice control, and at what scope?","a":"Whether/how the model calls tools — per request, not per conversation. Modes: auto, any, forced specific tool."},
+{"q":"When use tool_choice \"any\" for extraction?","a":"Multiple extraction schemas and unknown document type — must call a tool, model picks which."},
+{"q":"When use forced tool_choice?","a":"To guarantee a mandatory first step (e.g., extract_metadata before enrichment). Max control, no flexibility."},
+{"q":"What does tool_use with a schema NOT prevent?","a":"Semantic errors: sums that don't match, values in the wrong field, fabricated data. Needs separate validation."},
+{"q":"How do you design fields to prevent fabrication?","a":"Make fields optional/nullable when the source may lack the info — allow honest nulls."},
+{"q":"Schema pattern for genuinely ambiguous cases?","a":"Add an \"unclear\" enum value so the model isn't forced to classify uncertain data."},
+{"q":"Schema pattern for extensible categories?","a":"An \"other\" enum value paired with a freeform detail string."}
+],
+"traps":[
+{"trap":"Believing tool_use with JSON schemas prevents all extraction errors","why":"It eliminates syntax errors only. Semantic errors — bad sums, wrong fields, fabricated values — need separate validation."},
+{"trap":"Confusing tool_choice 'auto' with 'any'","why":"'auto' may return text (no guarantee). 'any' guarantees a tool call but the model chooses which. Unknown doc type + guaranteed structure → 'any'."},
+{"trap":"Making all schema fields required to ensure data completeness","why":"Required fields pressure the model to fabricate when info is absent. Optional/nullable allows honest nulls."}
+]},
+{"id":"4.4","title":"Validation, Retry & Feedback Loops","url":"https://claudecertificationguide.com/learn/4-prompt-engineering/4-4-validation-retry-loops",
+"takeaways":[
+{"q":"What three things go back to the model on a retry?","a":"The original document, the failed extraction, and the specific validation error."},
+{"q":"Which errors do retries fix?","a":"Format mismatches, structural errors, misplaced values, maths errors — where the data exists in the source but was extracted wrongly."},
+{"q":"When should you NOT retry?","a":"When info is genuinely absent from the source or needs external knowledge. Flag for human review."},
+{"q":"How do you build self-correction into the schema?","a":"Extract both calculated_total and stated_total, plus a conflict_detected boolean to flag contradictions."},
+{"q":"Schema syntax errors vs semantic errors — what fixes each?","a":"Syntax (malformed JSON, wrong types) → tool_use. Semantic (wrong sums, misplaced values) → validation logic + retry loop."},
+{"q":"Role of Pydantic in validate-retry?","a":"Enforces cross-field business rules a JSON schema can't express, producing per-field error messages the retry feeds back."},
+{"q":"How do detected_pattern fields improve prompts?","a":"Track which patterns trigger findings and their dismissal rates; high-dismissal patterns show where to refine the prompt."},
+{"q":"Why is retry-with-error-feedback better than a naive retry?","a":"Without the specific error the model repeats its mistake; with it (e.g., 'items sum to £450, stated £500') it corrects precisely."}
+],
+"traps":[
+{"trap":"Assuming retries always work for extraction failures","why":"Retries can't produce info absent from the source. Distinguish fixable from unfixable."},
+{"trap":"Implementing retries without including the specific validation error","why":"Naive retries reproduce the same mistake. The model must see exactly what went wrong."},
+{"trap":"Relying on schema validation alone without semantic checks","why":"tool_use catches syntax. Wrong sums, misplaced values, fabrication need validation logic and retries."},
+{"trap":"Treating Pydantic as redundant once tool_use enforces a JSON schema","why":"Schemas can't express cross-field rules (matching sums, date ordering). Pydantic encodes them and gives per-field errors for retries."}
+]},
+{"id":"4.5","title":"Batch Processing Strategies","url":"https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing",
+"takeaways":[
+{"q":"Message Batches API vs synchronous — when each?","a":"Batch for latency-tolerant work consumed later (overnight reports, weekly audits). Synchronous for blocking workflows where someone waits."},
+{"q":"Key constraints of the Message Batches API?","a":"50% cost savings, up to 24h processing, no latency SLA, no multi-turn tool calling within a request, custom_id for correlation."},
+{"q":"How do you correlate batch requests with responses?","a":"Each request has a unique custom_id that appears on its result."},
+{"q":"Failure-handling pattern for batches?","a":"Identify failures by custom_id, resubmit only those with targeted changes (chunking, simpler prompt, examples). Refine prompts on a sample set first."},
+{"q":"How often to submit batches for a 30-hour SLA?","a":"SLA − 24h max window = 6h buffer. Submit every ~4 hours so a fresh batch is always in flight."},
+{"q":"Why refine the prompt on a sample before a big batch?","a":"90% first-pass on 1,000 docs = 100 retries; 60% = 400 retries — 4× the resubmission cost."},
+{"q":"What happens if a batch exceeds 24 hours?","a":"It comes back expired — treat as failure and resubmit. Design for the worst case."},
+{"q":"Can the batch API do multi-turn tool calling?","a":"No. Workflows needing tool execution mid-request must use the synchronous API."}
+],
+"traps":[
+{"trap":"Switching all workflows to batch processing for cost savings","why":"Blocking workflows must stay synchronous — batch has no SLA and can take 24h."},
+{"trap":"Assuming batch results arrive quickly because they often do","why":"No latency SLA. Design around the 24-hour maximum, not best case."},
+{"trap":"Using batch API for workflows requiring multi-turn tool calling","why":"Not supported within a single request. Use the synchronous API."}
+]},
+{"id":"4.6","title":"Multi-Instance and Multi-Pass Review","url":"https://claudecertificationguide.com/learn/4-prompt-engineering/4-6-multi-pass-review",
+"takeaways":[
+{"q":"Why is same-session self-review weak?","a":"The model keeps its original reasoning chain and is less likely to question its decisions. An independent instance approaches it fresh."},
+{"q":"Three symptoms of attention dilution in single-pass multi-file reviews?","a":"Deep feedback on some files, superficial on others; obvious bugs missed mid-review; the same pattern flagged differently across files."},
+{"q":"How should large reviews be structured?","a":"Pass 1: per-file local analysis (focused attention). Pass 2: cross-file integration (data flow, contradictions, dependency conflicts)."},
+{"q":"Why doesn't a bigger context window fix attention dilution?","a":"It's attention quality, not capacity — more text fits but attention is still uneven."},
+{"q":"Calibrated thresholds vs raw self-reported confidence?","a":"Raw confidence is uncalibrated. Calibrated thresholds are validated against labelled sets with known accuracy — usable for routing."},
+{"q":"Five-step production review architecture?","a":"Generation → per-file review (independent instances) → integration review → confidence routing of low-confidence findings to humans → calibration loop against labelled sets."}
+],
+"traps":[
+{"trap":"Choosing self-review in the same session as a viable review strategy","why":"The model retains generation reasoning. An independent instance catches far more subtle issues."},
+{"trap":"Using a single pass for large multi-file reviews","why":"Inconsistent depth, missed bugs, contradictory findings. Split into per-file passes plus an integration pass."},
+{"trap":"Switching to a larger context window model to fix attention dilution","why":"Bigger windows don't fix attention quality. Focused per-file passes do."},
+{"trap":"Using uncalibrated confidence scores for automated review routing","why":"Calibrate thresholds on labelled validation sets before routing on confidence."}
+]}
+]}

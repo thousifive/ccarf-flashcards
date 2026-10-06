@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CCAR-F Flashcards</title>
+<meta name="description" content="Spaced-repetition flashcards for the Claude Certified Architect (Foundations) exam — key takeaways, exam traps and decision rules.">
+<meta name="theme-color" content="#f6f2ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16140f" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CCAR-F Cards">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="mark" aria-hidden="true">◆</span>
+    <div>
+      <h1>CCAR-F Flashcards</h1>
+      <p class="sub" id="deckSummary">Loading deck…</p>
+    </div>
+  </div>
+  <nav class="actions">
+    <button class="icon-btn" id="btnFilters" aria-label="Deck filters" title="Deck (F)">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span>Deck</span>
+    </button>
+    <button class="icon-btn" id="btnStats" aria-label="Progress" title="Progress">
+      <svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/></svg><span>Progress</span>
+    </button>
+    <button class="icon-btn" id="btnSync" aria-label="Sync settings" title="Sync">
+      <i class="sync-dot" id="syncDot" data-state="off"></i>
+      <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-14 5.3M4 12a8 8 0 0 1 14-5.3M18 3v4h-4M6 21v-4h4"/></svg><span>Sync</span>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <div class="session-bar">
+    <div class="pills" id="modePills" role="tablist">
+      <button data-mode="due" role="tab">Due</button>
+      <button data-mode="all" role="tab">All</button>
+      <button data-mode="struggling" role="tab">Struggling</button>
+      <button data-mode="starred" role="tab">Starred</button>
+    </div>
+    <div class="session-count" id="sessionCount"></div>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="sessionFill"></div></div>
+
+  <section class="stage" id="stage">
+    <article class="card" id="card" tabindex="0" aria-live="polite">
+      <div class="card-inner">
+        <div class="face front">
+          <div class="meta">
+            <span class="kind" id="kind"></span>
+            <span class="where" id="where"></span>
+          </div>
+          <p class="prompt-label" id="promptLabel"></p>
+          <div class="text" id="frontText"></div>
+          <p class="hint">Tap card or press <kbd>Space</kbd> to reveal</p>
+        </div>
+        <div class="face back">
+          <div class="meta">
+            <span class="kind" id="kindBack"></span>
+            <a class="where" id="sourceLink" target="_blank" rel="noopener">Source ↗</a>
+          </div>
+          <div class="question-recap" id="recap"></div>
+          <div class="text answer" id="backText"></div>
+        </div>
+      </div>
+      <button class="star" id="btnStar" aria-label="Star card" title="Star (S)">★</button>
+    </article>
+
+    <div class="empty" id="empty" hidden>
+      <h2 id="emptyTitle">All caught up</h2>
+      <p id="emptyBody">Nothing is due in this deck right now.</p>
+      <div class="empty-actions">
+        <button class="btn" id="btnStudyAll">Review all cards anyway</button>
+        <button class="btn ghost" id="btnOpenFilters">Change deck</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="rate" id="rate" aria-label="Rate your recall">
+    <button class="r again" data-r="0"><b>Again</b><small id="ivl0"></small><kbd>1</kbd></button>
+    <button class="r hard"  data-r="1"><b>Hard</b><small id="ivl1"></small><kbd>2</kbd></button>
+    <button class="r good"  data-r="2"><b>Good</b><small id="ivl2"></small><kbd>3</kbd></button>
+    <button class="r easy"  data-r="3"><b>Easy</b><small id="ivl3"></small><kbd>4</kbd></button>
+  </div>
+  <button class="reveal" id="btnReveal">Show answer</button>
+</main>
+
+<!-- Deck filters -->
+<dialog id="dlgFilters" class="sheet">
+  <form method="dialog">
+    <header><h2>Deck</h2><button class="x" value="close" aria-label="Close">✕</button></header>
+    <h3>Domains</h3>
+    <div id="domainList" class="checklist"></div>
+    <h3>Card types</h3>
+    <div id="typeList" class="checklist"></div>
+    <h3>Order</h3>
+    <label class="toggle"><input type="checkbox" id="optShuffle"> Shuffle new cards</label>
+    <div class="presets">
+      <button type="button" class="btn ghost" id="presetWeak" title="Lessons behind your most-repeated exam misses">Weak-spot lessons only</button>
+      <button type="button" class="btn ghost" id="presetAll">Everything</button>
+    </div>
+    <p class="fine" id="weakNote"></p>
+  </form>
+</dialog>
+
+<!-- Stats -->
+<dialog id="dlgStats" class="sheet">
+  <form method="dialog">
+    <header><h2>Progress</h2><button class="x" value="close" aria-label="Close">✕</button></header>
+    <div id="statsBody"></div>
+    <p class="fine"><span class="lg l-new"></span>new <span class="lg l-learn"></span>learning <span class="lg l-solid"></span>solid (box 3+, interval ≥ 4 days)</p>
+  </form>
+</dialog>
+
+<!-- Sync -->
+<dialog id="dlgSync" class="sheet">
+  <form method="dialog" id="syncForm">
+    <header><h2>Sync across devices</h2><button class="x" value="close" aria-label="Close">✕</button></header>
+    <p class="fine">Progress is always saved in this browser. To share it between desktop and phone, it is also stored in a <b>private GitHub Gist</b> on your account. Use a classic token with only the <code>gist</code> scope — fine-grained tokens can't access gists.</p>
+    <label class="field">GitHub token
+      <input type="password" id="inToken" autocomplete="off" spellcheck="false" placeholder="ghp_…">
+    </label>
+    <label class="field">Gist ID <small>(leave empty — found or created automatically)</small>
+      <input type="text" id="inGist" autocomplete="off" spellcheck="false" placeholder="auto">
+    </label>
+    <div class="row">
+      <button type="button" class="btn" id="btnSyncNow">Save &amp; sync now</button>
+      <button type="button" class="btn ghost" id="btnDisconnect">Disconnect</button>
+    </div>
+    <p class="status" id="syncStatus"></p>
+    <div class="divider"></div>
+    <h3>Set up your other device</h3>
+    <p class="fine">Copies a link containing your token and gist ID. Open it on your phone once; the page saves the settings and strips them from the address bar. Send it only to yourself.</p>
+    <div class="row"><button type="button" class="btn ghost" id="btnSetupLink">Copy setup link</button></div>
+    <div class="divider"></div>
+    <h3>Backup</h3>
+    <div class="row">
+      <button type="button" class="btn ghost" id="btnExport">Export progress</button>
+      <label class="btn ghost file">Import<input type="file" id="inImport" accept="application/json" hidden></label>
+      <button type="button" class="btn danger" id="btnReset">Reset progress</button>
+    </div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>

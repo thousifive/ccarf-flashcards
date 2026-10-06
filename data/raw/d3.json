@@ -1,0 +1,99 @@
+{"domain":3,"name":"Claude Code Configuration & Workflows","weight":20,"lessons":[
+{"id":"3.1","title":"CLAUDE.md Hierarchy, Scoping & Modular Organisation","url":"https://claudecertificationguide.com/learn/3-claude-code-config/3-1-claude-md-hierarchy",
+"takeaways":[
+{"q":"At what three levels does Claude Code read CLAUDE.md?","a":"User-level (~/.claude/CLAUDE.md), project-level (.claude/CLAUDE.md or root CLAUDE.md), and directory-level (subdirectory CLAUDE.md files)."},
+{"q":"How are conflicting rules across multiple CLAUDE.md files handled?","a":"All discovered files are concatenated into context, not overridden. If two rules contradict, Claude may pick either — CLAUDE.md is not a hard enforcement layer."},
+{"q":"CLAUDE.md vs settings.json for must-hold rules?","a":"settings.json rules (and hooks) are enforced by the client regardless of what Claude decides. CLAUDE.md shapes behaviour but doesn't guarantee it."},
+{"q":"How does @ syntax work in CLAUDE.md?","a":"A line beginning with @ followed by a path inlines that file at load time. There is no @import keyword — just @path on its own line."},
+{"q":"What is CLAUDE.local.md?","a":"Loads after CLAUDE.md at the same level, gitignored by convention. For personal project-scoped tweaks, not team rules."},
+{"q":"What does /memory do — does it load config?","a":"It lists loaded CLAUDE.md / CLAUDE.local.md files and opens them in your editor. Diagnostic only; config loads automatically by location."},
+{"q":"What survives /compact?","a":"Project-root CLAUDE.md is re-read from disk after compaction. Nested and path-scoped files load on demand and return when Claude next reads a matching file."},
+{"q":"New team member gets inconsistent Claude Code behaviour on the same repo/branch. Most common root cause?","a":"Conventions live in the existing dev's user-level ~/.claude/CLAUDE.md, which isn't version-controlled or shared. Move them to project level."},
+{"q":"Directory-level CLAUDE.md vs .claude/rules/ with paths?","a":"Directory CLAUDE.md covers one directory. For conventions spanning many directories, use .claude/rules/ with glob patterns in YAML frontmatter."}
+],
+"traps":[
+{"trap":"New team member not receiving Claude Code instructions despite working on the same repo and branch","why":"Instructions are in user-level config (~/.claude/CLAUDE.md), not shared via git. Move them to .claude/CLAUDE.md for team-wide application."},
+{"trap":"Thinking /memory triggers configuration loading","why":"/memory is diagnostic — shows which files are loaded. Config loads automatically based on location in the hierarchy."},
+{"trap":"Assuming directory-level CLAUDE.md is the best solution for cross-directory conventions","why":"Directory CLAUDE.md applies to one directory. For conventions spanning many (e.g., test files everywhere), use .claude/rules/ with glob patterns."}
+]},
+{"id":"3.2","title":"Custom Slash Commands and Skills","url":"https://claudecertificationguide.com/learn/3-claude-code-config/3-2-slash-commands-skills",
+"takeaways":[
+{"q":"What is a skill and how is it invoked?","a":"A named, reusable set of instructions in Markdown with optional YAML frontmatter. Invoked as a slash command (/review) or auto-loaded when a request matches its description."},
+{"q":".claude/skills/ vs .claude/commands/ — structure?","a":"Skill = directory with SKILL.md (.claude/skills/deploy/SKILL.md). Command = flat file (.claude/commands/deploy.md). .claude/skills/ is canonical."},
+{"q":"Key scoping distinction in Claude Code config?","a":"Project-scoped (.claude/) = version-controlled, shared via git. User-scoped (~/.claude/) = personal, not shared. Applies to CLAUDE.md, commands/skills, and rules."},
+{"q":"When do you use context: fork in skill frontmatter?","a":"For skills producing verbose output (codebase analysis, brainstorming) — runs in an isolated sub-agent context so the main conversation stays clean."},
+{"q":"What does allowed-tools do in skill frontmatter (exam v1.0)?","a":"Restricts which tools the skill can use. (Current Claude Code pre-approves the listed tools for promptless use.)"},
+{"q":"What is argument-hint?","a":"An autocomplete label showing expected arguments (e.g., [issue-number]). Makes inputs explicit without interactive prompting."},
+{"q":"Skills vs CLAUDE.md?","a":"Skills: on-demand, task-specific workflows loaded when invoked. CLAUDE.md: always-loaded universal standards with no invocation step."},
+{"q":"Personal variant of a team skill without conflicts?","a":"Create it in ~/.claude/skills/ under a different name (e.g., /deep-analyse instead of /analyse)."}
+],
+"traps":[
+{"trap":"Creating a flat Markdown file directly inside .claude/skills/ (e.g., .claude/skills/review.md) and expecting a /review command","why":"A skill must be a directory with SKILL.md (.claude/skills/review/SKILL.md). Flat .md files create commands only under .claude/commands/."},
+{"trap":"Placing a team-shared command in a user-scoped path (~/.claude/commands/ or ~/.claude/skills/) instead of a project-scoped path","why":"User-scoped paths are personal and unshared. Team commands go in .claude/skills/ or .claude/commands/ in the repo."},
+{"trap":"Thinking skills behave like CLAUDE.md for always-on guidance","why":"Skills load on demand. For always-on conventions the answer is CLAUDE.md or .claude/rules/."},
+{"trap":"Not knowing when to use context: fork","why":"Without it, verbose brainstorming/analysis output pollutes the main context window. Use it for exploratory or verbose tasks."},
+{"trap":"Putting task-specific workflows in CLAUDE.md","why":"CLAUDE.md is for always-loaded universal standards. Review workflows, analysis routines, templates → skills."}
+]},
+{"id":"3.3","title":"Path-Specific Rules","url":"https://claudecertificationguide.com/learn/3-claude-code-config/3-3-path-specific-rules",
+"takeaways":[
+{"q":"How do .claude/rules/ files decide when to apply?","a":"Glob patterns in the YAML frontmatter paths field. They load only when Claude works with files matching those patterns."},
+{"q":"Why are path-scoped rules more token-efficient than root CLAUDE.md?","a":"They load only for matching files; root CLAUDE.md loads every session regardless of what you're editing."},
+{"q":"What do path rules solve that directory CLAUDE.md can't?","a":"Conventions for a file type scattered across many directories — one rule file instead of duplicates in 50+ directories."},
+{"q":"How does a glob like **/*.test.tsx provide coverage?","a":"Matches files anywhere in the codebase regardless of directory depth."},
+{"q":"Classic exam scenario for path-specific rules?","a":"Test files co-located with source across 50+ directories needing consistent conventions → .claude/rules/ with glob paths."},
+{"q":"How do you verify which path rules are loaded?","a":"/context — only rules matching the current file's path appear."}
+],
+"traps":[
+{"trap":"Choosing directory-level CLAUDE.md over path-specific rules for cross-directory conventions","why":"For files spread across 50+ directories, glob-scoped rules are correct; directory CLAUDE.md would need a file in every directory."},
+{"trap":"Placing file-type-specific conventions in root CLAUDE.md","why":"Root CLAUDE.md loads every session — Terraform rules eat tokens while editing React. Path rules load only for matching files."},
+{"trap":"Confusing skills with path-specific rules for automatic convention application","why":"Rules stay in context as background guidance when a matching file is read, shaping every edit. Skills load on demand as task workflows. Automatic always-on conventions for a file type → path rules."}
+]},
+{"id":"3.4","title":"Plan Mode vs Direct Execution","url":"https://claudecertificationguide.com/learn/3-claude-code-config/3-4-plan-mode-execution",
+"takeaways":[
+{"q":"When do you choose plan mode?","a":"Complex tasks needing exploration, comparison of approaches, architectural decisions, multi-file changes, or dependency understanding before implementing."},
+{"q":"When is direct execution right?","a":"Well-scoped change, approach already known, limited to a single file/function, no design decisions."},
+{"q":"How do you enter plan mode?","a":"claude --permission-mode plan, Shift+Tab until status shows plan mode, or prefix a prompt with /plan. Writing 'plan mode' in the prompt body does nothing."},
+{"q":"What is the Explore subagent for?","a":"Isolates verbose discovery output from the main conversation, returning summaries and keeping context clean for implementation."},
+{"q":"What is the hybrid pattern?","a":"Plan-then-execute: plan mode for investigation and strategy, then direct execution to implement consistently (e.g., library migrations)."},
+{"q":"What does the plan-vs-direct choice hinge on?","a":"Ambiguity, not difficulty. A hard but well-defined bug fix → direct. A simple-sounding feature with multiple approaches across modules → plan."},
+{"q":"Choose plan mode upfront, or wait for complexity to emerge?","a":"Upfront when complexity is stated in the requirements — it's known, not speculative."}
+],
+"traps":[
+{"trap":"Defaulting to direct execution for multi-file architectural changes","why":"Multiple valid approaches across many files need plan mode; direct execution risks costly rework."},
+{"trap":"Using plan mode for a single-file bug fix with a clear stack trace","why":"Known cause, location, and fix → direct execution. Plan mode is unnecessary overhead."},
+{"trap":"Not recognising the plan-then-execute hybrid pattern","why":"Combine plan mode for investigation with direct execution for implementation."},
+{"trap":"Starting direct execution and switching to plan mode only when complexity emerges","why":"If complexity is already stated (e.g., monolith restructuring), choose plan mode upfront."}
+]},
+{"id":"3.5","title":"Iterative Refinement Techniques","url":"https://claudecertificationguide.com/learn/3-claude-code-config/3-5-iterative-refinement",
+"takeaways":[
+{"q":"Claude Code interprets a prose description inconsistently. First technique?","a":"Give 2–3 concrete input/output examples of the exact transformation. Examples generalise more reliably than prose."},
+{"q":"Best technique for complex transformations with many edge cases?","a":"Test-driven iteration: write tests (happy path, edge cases, performance), share failures for unambiguous feedback."},
+{"q":"When do you use the interview pattern?","a":"Unfamiliar domain where you might miss considerations — have Claude ask questions before implementing to surface hidden requirements."},
+{"q":"Multiple issues that interact — how do you give feedback?","a":"All in a single message, so the model sees every constraint and produces a coherent fix."},
+{"q":"When should feedback be sequential instead?","a":"When issues are independent and don't affect each other."},
+{"q":"Interview pattern vs examples?","a":"Examples fix inconsistent interpretation when you know the exact transformation. Interview fixes missing requirements in unfamiliar domains."},
+{"q":"How many examples are enough?","a":"Two or three well-chosen ones covering the standard case and key edge cases."}
+],
+"traps":[
+{"trap":"Choosing to refine prose descriptions when the model interprets them inconsistently","why":"Better prose still relies on interpretation. Concrete input/output examples remove ambiguity — examples first."},
+{"trap":"Not recognising when to batch vs sequence feedback","why":"Interacting issues → one message. Independent issues → sequential."},
+{"trap":"Confusing the interview pattern with the examples technique","why":"Interview = unfamiliar domain, missing considerations. Examples = known transformation, misinterpreted. Different problems."}
+]},
+{"id":"3.6","title":"CI/CD Integration","url":"https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration",
+"takeaways":[
+{"q":"Which flag makes Claude Code run non-interactively in CI?","a":"-p (--print): process the prompt, write to stdout, exit — no interactive input."},
+{"q":"How do you make CI output machine-parseable for PR comments?","a":"--output-format json with --json-schema; schema-validated data lands in the structured_output field of the JSON envelope."},
+{"q":"Why is review in a separate session better than self-review?","a":"The generating session keeps its reasoning context and is biased toward its own decisions. An independent instance judges on merit."},
+{"q":"How do you avoid duplicate review comments across CI runs?","a":"Include prior findings in context and instruct Claude to report only new or still-unaddressed issues."},
+{"q":"How does CLAUDE.md improve CI test generation?","a":"It documents testing standards, fixtures and review criteria; Claude reads it in CI just like interactively, so tests follow team patterns."},
+{"q":"Batch API vs real-time in CI?","a":"Real-time for blocking pre-merge checks. Batch (50% cheaper, up to 24h latency, no SLA) for non-blocking overnight/weekly analysis."},
+{"q":"--append-system-prompt vs --system-prompt?","a":"--append-system-prompt adds to the default prompt (keeps tool guidance/safety). --system-prompt replaces it entirely."},
+{"q":"How do git worktrees help parallel Claude Code sessions?","a":"Each worktree is a separate directory on its own branch — isolated edits and independent context budgets."}
+],
+"traps":[
+{"trap":"CI pipeline hanging because Claude Code is waiting for interactive input","why":"Use -p (--print). CLAUDE_HEADLESS=true and --batch don't exist; stdin redirection isn't the documented method."},
+{"trap":"Assuming self-review in the same session is as effective as independent review","why":"The same session retains generation reasoning and is less likely to question itself. Use an independent instance."},
+{"trap":"Using the Batch API for pre-merge CI checks","why":"Up to 24h processing, no latency SLA. Blocking checks need the real-time API; batch for overnight/weekly."},
+{"trap":"Not including prior review findings in subsequent review runs","why":"Each run starts from scratch and duplicates comments. Include prior findings; report only new/unaddressed issues."}
+]}
+]}

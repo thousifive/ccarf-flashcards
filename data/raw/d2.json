@@ -1,0 +1,88 @@
+{"domain":2,"name":"Tool Design & MCP Integration","weight":18,"lessons":[
+{"id":"2.1","title":"Tool Interface Design","url":"https://claudecertificationguide.com/learn/2-tool-design-mcp/2-1-tool-schema-design",
+"takeaways":[
+{"q":"What is the PRIMARY mechanism Claude uses for tool selection?","a":"Tool descriptions — not supplementary metadata or an afterthought."},
+{"q":"Five elements of a production-grade tool description?","a":"Purpose; expected inputs with types and constraints; example queries; edge cases and limitations; explicit boundaries versus similar tools."},
+{"q":"When is expanding tool descriptions the right fix for misrouting — and when not?","a":"Right when the agent has a workable number of tools but can't tell them apart. Not when the toolkit itself is overloaded (beyond ~4–5 tools per agent)."},
+{"q":"Why are few-shot examples a poor FIRST step for tool misrouting?","a":"They add token overhead without fixing the root cause — weak descriptions. Fix descriptions first."},
+{"q":"When several remedies would work, which does the exam favour?","a":"Low-effort, high-leverage fixes: better descriptions before routing classifiers, scoped access before full access, community servers before custom builds."},
+{"q":"How should a vague generic tool be improved?","a":"Split it into purpose-specific tools with defined input/output contracts and narrow, clearly described jobs."},
+{"q":"What can silently override well-written tool descriptions?","a":"Keyword-sensitive instructions in the system prompt that create unintended tool associations — review the system prompt after updating descriptions."}
+],
+"traps":[
+{"trap":"Choosing few-shot examples to fix tool misrouting caused by minimal descriptions","why":"Few-shot adds token overhead without fixing the root cause. The model is confused because descriptions don't differentiate the tools — fix descriptions first."},
+{"trap":"Implementing a routing classifier as the first step to fix tool selection","why":"Over-engineered as a first response; bypasses the LLM's language understanding and adds infrastructure the exam doesn't consider proportionate."},
+{"trap":"Consolidating similar tools into one as the first step","why":"Consolidation is a valid long-term choice but costs more than expanding descriptions. The exam favours low-effort, high-leverage first steps."},
+{"trap":"Ignoring system prompt wording after updating tool descriptions","why":"Keyword-sensitive system prompt instructions can silently override good descriptions and create unintended tool associations."}
+]},
+{"id":"2.2","title":"Structured Error Responses","url":"https://claudecertificationguide.com/learn/2-tool-design-mcp/2-2-structured-error-responses",
+"takeaways":[
+{"q":"What is the isError flag for in MCP tool responses?","a":"It tells the model the tool execution failed, so it reasons about recovery instead of treating error text as a successful result."},
+{"q":"Protocol errors vs tool execution errors?","a":"Protocol errors: JSON-RPC errors for malformed requests (unknown tool, invalid schema). Execution errors: result objects with isError: true — the tool ran but failed."},
+{"q":"Four error categories and their recovery?","a":"Transient → retry after delay. Validation → fix input and resend. Business → escalate / alternative workflow. Permission → different credentials or escalate."},
+{"q":"When is isRetryable true?","a":"Only for transient errors (valid request, system temporarily unavailable). All other categories are false — something must change first."},
+{"q":"Distinction the exam tests most directly here?","a":"Access failure (couldn't reach the data source → isError: true) vs valid empty result (query succeeded, no matches → isError: false)."},
+{"q":"Why does confusing access failures with empty results break recovery?","a":"The agent retries a successful query that legitimately found nothing — wasted effort, possibly wrong escalation."},
+{"q":"Three metadata fields of a structured error?","a":"errorCategory (transient/validation/business/permission), isRetryable (boolean), description (explanation + recovery guidance)."},
+{"q":"Error-handling principle for subagents?","a":"Recover locally from transient failures; propagate only what can't be resolved locally — with partial results and what was attempted."}
+],
+"traps":[
+{"trap":"Retrying when a tool returns an empty result from a successful query","why":"Empty from a successful query means no data matches. Retrying returns the same. Accept the result and respond accordingly."},
+{"trap":"Using generic error messages like 'Operation failed' without structured metadata","why":"Without errorCategory, isRetryable and description, the agent can't tell transient failures from business-rule violations."},
+{"trap":"Treating business errors as retryable","why":"A policy violation (e.g., refund over limit) never resolves on retry. Take an alternative path such as escalation."},
+{"trap":"Marking a validation error isRetryable: true because the agent can recover from it","why":"isRetryable asks whether resending THIS EXACT call can work. A malformed ID fails every time (false). The agent recovers by correcting input; errorCategory carries that instruction."},
+{"trap":"Reading isRetryable: false as 'abandon the task'","why":"Three categories are non-retryable but only two are dead ends. Validation = fix input; business and permission = alternative path or different principal."},
+{"trap":"Silently suppressing subagent errors by returning empty results as success","why":"Hides failure from the coordinator — it can't distinguish 'found nothing' from 'could not search' and may produce incomplete output."}
+]},
+{"id":"2.3","title":"Tool Distribution & Tool Choice","url":"https://claudecertificationguide.com/learn/2-tool-design-mcp/2-3-tool-distribution-choice",
+"takeaways":[
+{"q":"Optimal number of tools per agent?","a":"About 4–5, scoped to the agent's role. More tools degrade selection reliability."},
+{"q":"When do you consolidate tools into one parameterised tool?","a":"When they're variations on one job with the same shape (data in, operation, data out)."},
+{"q":"Decision rule: sharpen descriptions vs split by role vs consolidate?","a":"Few confusing tools → sharpen descriptions. Different jobs → split by role (4–5 each). Variations on one job → consolidate into a parameterised tool."},
+{"q":"tool_choice: \"auto\"?","a":"Model decides whether to call a tool or reply with text. Default for general operation."},
+{"q":"tool_choice: \"any\"?","a":"Model MUST call a tool but picks which. Guarantees structured output from one of several schemas rather than plain text."},
+{"q":"Forced tool_choice ({type: \"tool\", name})?","a":"Model MUST call that specific tool. Enforces a mandatory workflow step — can't be skipped or reordered."},
+{"q":"What is a scoped cross-role tool?","a":"A constrained version of another role's capability given directly to an agent (e.g., verify_fact on the synthesis agent) to avoid coordinator round-trips for high-frequency simple operations."},
+{"q":"How does least privilege apply to tools?","a":"Replace generic tools with constrained ones that do exactly what the agent needs (load_document instead of fetch_url)."}
+],
+"traps":[
+{"trap":"Routing all simple verification requests through the coordinator when 85% are simple lookups","why":"Each round-trip adds hops. A scoped verify_fact tool on the synthesis agent handles the simple 85% directly and cuts latency substantially."},
+{"trap":"Using tool_choice 'auto' when structured output is required","why":"With auto the model may reply in text. Use 'any' to guarantee a tool call, or forced selection for a specific tool."},
+{"trap":"Giving an agent 18 tools and expecting reliable selection","why":"Selection reliability drops as tool count rises. Aim for 4–5 per agent."},
+{"trap":"Giving a subagent a generic fetch_url tool when a constrained load_document would suffice","why":"Generic tools enable misuse. Constrained alternatives enforce least privilege and make purpose clearer."}
+]},
+{"id":"2.4","title":"MCP Server Integration","url":"https://claudecertificationguide.com/learn/2-tool-design-mcp/2-4-mcp-server-integration",
+"takeaways":[
+{"q":"Where does team-wide MCP server config live?","a":".mcp.json at the project root — version-controlled and shared with everyone who clones the repo."},
+{"q":"What is ~/.claude.json for (MCP)?","a":"User-level: personal, experimental or test servers. Not version-controlled, not shared."},
+{"q":"How do you keep credentials out of .mcp.json?","a":"Environment variable expansion: ${GITHUB_TOKEN}. Each developer sets it locally; secrets never enter history."},
+{"q":"What does ${VAR:-default} do?","a":"Expands to VAR when set, falls back to default when unset — good for machine-specific paths."},
+{"q":"MCP resources vs tools — what do resources add?","a":"Resources expose content catalogues (schemas, docs, summaries) upfront, cutting wasted exploratory tool calls. Tools perform actions."},
+{"q":"Community vs custom MCP server?","a":"Community for standard integrations (Jira, GitHub, Slack). Custom only for team-specific workflows community servers can't handle."},
+{"q":"Why do sparse MCP tool descriptions cause problems?","a":"The agent prefers built-in tools with rich descriptions. Enhance MCP descriptions to explain capabilities and outputs."},
+{"q":"How are MCP tools discovered?","a":"Tools from all configured servers (project and user level) are discovered at connection time and available simultaneously."}
+],
+"traps":[
+{"trap":"Building a custom MCP server for a standard integration like Jira","why":"Evaluate community servers first. Custom builds are justified only for team-specific workflows."},
+{"trap":"Putting team-wide MCP server configuration in ~/.claude.json","why":"~/.claude.json is personal and unshared. Team-wide servers belong in .mcp.json at the project root."},
+{"trap":"Committing credentials directly in .mcp.json instead of using environment variable expansion","why":"Credentials in version control are a security risk. Use ${GITHUB_TOKEN} so each dev sets tokens locally."},
+{"trap":"Leaving MCP tool descriptions sparse, causing the agent to prefer built-in tools","why":"The model defaults to tools it understands best. Enhance MCP descriptions to compete for selection."}
+]},
+{"id":"2.5","title":"Built-in Tools","url":"https://claudecertificationguide.com/learn/2-tool-design-mcp/2-5-built-in-tools",
+"takeaways":[
+{"q":"Grep vs Glob?","a":"Grep searches file CONTENTS (function calls, error messages, imports). Glob matches file PATHS/NAMES (**/*.test.tsx, config files)."},
+{"q":"Tool sequence to find callers of a deprecated function and their tests?","a":"Grep the function name → callers; Glob for sibling test files by naming convention; Grep again for wrapper names to catch indirect usage."},
+{"q":"Correct approach to modifying a file?","a":"Edit first with a short unique anchor. On non-unique match, Read + Write is the exam's documented fallback (real Claude Code also offers widening old_string / replace_all)."},
+{"q":"Incremental codebase understanding strategy?","a":"Grep for entry points → Read to trace flows and imports → Grep for wrapper/exported names → Read only justified files. Never load everything upfront."},
+{"q":"Why does Edit fail on non-unique text?","a":"Unique matching is a safety mechanism against changing unintended occurrences."},
+{"q":"How do you trace usage through wrappers and barrel files?","a":"Grep for the definition, Read the defining file to find exported names, then Grep each exported name across the codebase."},
+{"q":"Exam answer when Edit reports a non-unique anchor?","a":"Read the full file, then Write the complete modified version — the exam guide's keyed fallback."}
+],
+"traps":[
+{"trap":"Using Glob to find function callers (it searches paths, not contents)","why":"Glob matches file paths. Use Grep to search inside files for function names, imports, or error messages."},
+{"trap":"Using Grep to find files by extension or naming pattern","why":"Glob is the purpose-built path matcher: **/*.test.tsx, **/config.*."},
+{"trap":"Reading all source files upfront before understanding what is relevant","why":"Context-budget killer. Go incremental: Grep for entry points, then Read specific flows."},
+{"trap":"Defaulting to Read + Write for every file modification instead of trying Edit first","why":"Edit touches only the specific text and uses less context. Read + Write is the fallback when Edit can't find a unique anchor."},
+{"trap":"Answering 'widen old_string or set replace_all' when a question asks what to do after Edit reports a non-unique match","why":"That's current Claude Code behaviour, but the exam guide names Read + Write as the fallback and keyed answers follow the guide."}
+]}
+]}

@@ -1,0 +1,99 @@
+{"domain":5,"name":"Context Management & Reliability","weight":15,"lessons":[
+{"id":"5.1","title":"Context Window Management","url":"https://claudecertificationguide.com/learn/5-context-management/5-1-context-window-management",
+"takeaways":[
+{"q":"What is the persistent case facts block?","a":"Transactional facts (amounts, dates, order numbers) extracted into a structured block included in every prompt, outside summarised history — so summarisation can't destroy them."},
+{"q":"Why does progressive summarisation fail for customer support?","a":"It systematically destroys the most critical info: numbers, dates, percentages, customer-stated expectations."},
+{"q":"How do you address 'lost in the middle' in aggregated inputs?","a":"Put a key-findings summary at the beginning and organise details under explicit section headers. Structural fix, not a prompt reminder."},
+{"q":"Why trim tool results before they enter history?","a":"A 40+ field result is re-sent every turn as history grows. Trim to relevant fields first."},
+{"q":"Why can't you selectively truncate conversation history?","a":"The API is stateless — each request needs the complete history for coherence. Use case-facts blocks and summarisation instead."},
+{"q":"Upstream fix for context waste in multi-agent systems?","a":"Make upstream agents return structured data (key facts, citations, relevance scores) instead of verbose reasoning and raw content."},
+{"q":"Role of prompt caching?","a":"Mark a stable prefix with a cache_control breakpoint; subsequent requests pay a fraction for cached tokens instead of reprocessing."}
+],
+"traps":[
+{"trap":"Thinking progressive summarisation is safe for transactional data","why":"Summarisation destroys numbers, dates, and identifiers. Keep them in a persistent case facts block outside summarised history."},
+{"trap":"Assuming the 'lost in the middle' effect is solved by telling the model to pay attention to everything","why":"The fix is structural: key findings first, explicit section headers. Prompt reminders are unreliable for position effects."},
+{"trap":"Keeping full tool results in context because 'the model might need them later'","why":"Untrimmed 40+ field results exhaust the budget across turns. Trim before they enter history."},
+{"trap":"Believing conversation history can be selectively truncated without consequences","why":"The API is stateless; truncation breaks coherence. Use case facts blocks and summarisation instead."}
+]},
+{"id":"5.2","title":"Escalation & Ambiguity Resolution","url":"https://claudecertificationguide.com/learn/5-context-management/5-2-escalation-ambiguity",
+"takeaways":[
+{"q":"Three valid escalation triggers?","a":"Explicit request for a human (honour immediately); policy exceptions/gaps (not violations); inability to make meaningful progress after a genuine attempt."},
+{"q":"Why is sentiment-based escalation unreliable?","a":"Frustration doesn't correlate with complexity. Furious + simple issue = resolvable; calm + policy gap = escalate."},
+{"q":"Why is self-reported confidence a poor escalation signal?","a":"It's poorly calibrated — confidently wrong on hard cases, needlessly unsure on easy ones. (A separate classifier score can be a valid trigger.)"},
+{"q":"Frustrated customer, straightforward issue — what do you do?","a":"Acknowledge the frustration and offer the resolution. Escalate only if they then explicitly ask for a human."},
+{"q":"Customer explicitly asks for a human?","a":"Escalate immediately — no investigation, no 'let me try first'. Absolute rule."},
+{"q":"Name search returns multiple customer records?","a":"Ask for disambiguating identifiers (email, phone, order number). Never pick by heuristic like most recent/most active."},
+{"q":"Proportionate first fix for poor escalation calibration?","a":"Add explicit escalation criteria with few-shot examples to the system prompt — before any architectural change."},
+{"q":"Policy violation vs policy gap?","a":"Violation: policy has an answer (outside return window = no). Gap: policy is silent → needs human judgement → escalate."}
+],
+"traps":[
+{"trap":"Sentiment-based escalation seems reasonable but is fundamentally unreliable","why":"Frustration ≠ complexity. Furious + simple late delivery is easy; calm + policy gap needs escalation."},
+{"trap":"Self-reported confidence scores provide a reliable escalation signal","why":"LLM self-confidence is poorly calibrated — exactly the failure mode the exam tests."},
+{"trap":"Attempting to resolve before honouring an explicit human request","why":"'I want a human' → escalate immediately. Absolute rule."},
+{"trap":"Selecting from ambiguous customer matches using the most recent or most active record","why":"Risks privacy violations and wrong actions. Ask for additional identifiers."}
+]},
+{"id":"5.3","title":"Error Propagation in Multi-Agent Systems","url":"https://claudecertificationguide.com/learn/5-context-management/5-3-error-propagation",
+"takeaways":[
+{"q":"Four elements of structured error context from a failed subagent?","a":"Failure type (transient/validation/business/permission), what was attempted (query, params, target), partial results gathered, potential alternative approaches."},
+{"q":"Why is silent suppression the worst anti-pattern?","a":"Empty results marked success → coordinator thinks it searched and found nothing → no retry or alternatives, invisible gaps in output."},
+{"q":"Workflow termination vs intelligent recovery?","a":"Termination kills the pipeline on one failure, discarding others' good results. Recovery uses structured error context to retry, try alternatives, or proceed with partial results."},
+{"q":"Access failure vs valid empty result?","a":"Access failure: couldn't reach the source (timeout, permission) → may retry. Valid empty: query ran, no matches → that IS the answer; don't retry."},
+{"q":"When should a subagent propagate an error?","a":"Only after local recovery for transient failures (retry, fallback, degraded response) fails — include what was attempted and partial results."},
+{"q":"What are coverage annotations for?","a":"Marking which areas are well-supported vs have gaps from unavailable sources, instead of silently omitting topics."},
+{"q":"What does the coordinator do with structured error context?","a":"Assess failure type and partial results, then retry with modified params, try an alternative, proceed with partial results, or escalate."}
+],
+"traps":[
+{"trap":"Catching a timeout and returning empty results marked as successful","why":"Silent suppression blocks all recovery — the coordinator never tries alternatives. Worst anti-pattern."},
+{"trap":"Terminating the entire research pipeline when one subagent times out","why":"Wastes successful subagents' partial results. Assess and recover in a targeted way."},
+{"trap":"Returning a generic 'search unavailable' status after retry exhaustion","why":"Hides the query, partial results and alternatives. Structured error context enables informed recovery."},
+{"trap":"Retrying a valid empty result because it looks like a failure","why":"The query succeeded with no matches — that is the answer. Retrying always returns nothing."}
+]},
+{"id":"5.4","title":"Codebase Exploration & Context Degradation","url":"https://claudecertificationguide.com/learn/5-context-management/5-4-codebase-exploration",
+"takeaways":[
+{"q":"What is context degradation and why doesn't a bigger window fix it?","a":"As verbose output accumulates, the model loses grip on specific findings and talks about 'typical patterns' instead of the actual classes/methods it found. Attention quality, not token limit."},
+{"q":"Primary mitigation for context degradation in exploration?","a":"Scratchpad files that persist key findings outside the conversation."},
+{"q":"Main benefit of subagent delegation for exploration (beyond parallelism)?","a":"Context isolation — subagents absorb verbose exploration; the main agent's context stays clean for coordination."},
+{"q":"What is the cold start problem and its fix?","a":"Phase 2 subagents redo Phase 1 exploration. Fix: summary injection of Phase 1 findings into Phase 2 prompts."},
+{"q":"When should /compact be used?","a":"Proactively during extended sessions to maintain quality — not only as a last resort at the limit."},
+{"q":"What goes in a crash-recovery state manifest?","a":"Session ID, current phase, explored paths, key findings, next steps."},
+{"q":"How does context degradation show up in behaviour?","a":"Generic references instead of the specific class names, methods, and dependency chains discovered earlier."}
+],
+"traps":[
+{"trap":"Increasing the context window to solve context degradation","why":"It's not about running out of tokens; a larger window still fills with verbose output."},
+{"trap":"Assuming subagent delegation is only about parallelisation","why":"The primary benefit for exploration is context isolation."},
+{"trap":"Restarting a session to fix context degradation without saving state","why":"Loses all knowledge. Persist findings in scratchpads/state manifests first, then inject them."},
+{"trap":"Using /compact only when hitting context limits","why":"Use it proactively to maintain context quality."}
+]},
+{"id":"5.5","title":"Human Review & Confidence Calibration","url":"https://claudecertificationguide.com/learn/5-context-management/5-5-human-review-calibration",
+"takeaways":[
+{"q":"Why are aggregate accuracy metrics dangerous for automation decisions?","a":"97% overall can hide 40% accuracy on a particular document type — teams over-automate."},
+{"q":"What must you validate before automating extractions?","a":"Accuracy by document type AND field segment — never aggregate alone."},
+{"q":"Why sample high-confidence extractions?","a":"They're automated and unreviewed. Only stratified sampling of them detects novel error patterns."},
+{"q":"Raw confidence vs actual accuracy?","a":"Uncalibrated: 0.90 might mean 94% on dates but 82% on amounts."},
+{"q":"How is confidence calibrated?","a":"Labelled validation sets with ground truth → compare confidence to actual accuracy → calibration curves per field type per document type."},
+{"q":"How do you allocate limited reviewer capacity?","a":"Highest-uncertainty items first (low-confidence fields, historically problematic doc types) — not evenly."},
+{"q":"Correct sequence before reducing human review?","a":"Measure accuracy by segment → calibrate confidence → set calibrated thresholds → stratified sampling → reduce review only on validated segments."}
+],
+"traps":[
+{"trap":"Using aggregate accuracy (e.g., 97%) to justify automating all high-confidence extractions","why":"Aggregates hide per-type failures. Validate by document type and field segment."},
+{"trap":"Only sampling low-confidence extractions for human review","why":"Novel errors in automated high-confidence items are only caught by stratified sampling of those items."},
+{"trap":"Using raw model confidence scores without calibration","why":"0.90 means different accuracy per field. Calibrate on labelled sets."},
+{"trap":"Spreading reviewer capacity evenly across all extractions","why":"Wastes time on high-confidence items. Prioritise the highest-uncertainty items."}
+]},
+{"id":"5.6","title":"Information Provenance & Multi-Source Synthesis","url":"https://claudecertificationguide.com/learn/5-context-management/5-6-information-provenance",
+"takeaways":[
+{"q":"Five components every claim should carry in multi-agent research?","a":"Claim, source URL, document name, relevant excerpt, publication date."},
+{"q":"Why does attribution fail in synthesis?","a":"Synthesis agents compress and paraphrase; without explicit instructions to preserve claim–source mappings, attribution dies."},
+{"q":"Two credible sources conflict. What does synthesis do?","a":"Annotate both values with full attribution and dates; let the consumer decide. Don't pick one."},
+{"q":"Why are publication dates critical?","a":"Different dates often explain different numbers as a trend, not a contradiction."},
+{"q":"How should synthesis render different content types?","a":"Financial data as tables, news as prose, technical findings as structured lists."},
+{"q":"Where in the pipeline is attribution most often lost?","a":"At the synthesis step — its prompt must require every claim to be traceable."},
+{"q":"Analysis agent hits conflicting field values?","a":"Complete the analysis with both values preserved and annotated; the coordinator/consumer resolves."}
+],
+"traps":[
+{"trap":"Selecting the most recent source when two credible sources conflict","why":"Picking one destroys information. Annotate both with attribution and dates."},
+{"trap":"Assuming different numbers from different sources are contradictions","why":"Different collection dates often explain them. Require dates in structured outputs."},
+{"trap":"Allowing the synthesis agent to paraphrase without preserving claim-source mappings","why":"Attribution dies in summarisation. Synthesis must preserve and merge mappings."},
+{"trap":"Rendering all content types in a uniform format (all prose, all tables, or all lists)","why":"Tables for financials, prose for news, lists for technical findings."}
+]}
+]}

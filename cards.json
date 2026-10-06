@@ -1,0 +1,3321 @@
+{
+ "version": 1,
+ "source": "https://claudecertificationguide.com/learn",
+ "domains": [
+  {
+   "id": 1,
+   "name": "Agentic Architecture & Orchestration",
+   "weight": 27,
+   "lessons": [
+    {
+     "id": "1.1",
+     "title": "Agentic Loops",
+     "url": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-1-agentic-loops"
+    },
+    {
+     "id": "1.2",
+     "title": "Multi-Agent Orchestration",
+     "url": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-2-orchestration-patterns"
+    },
+    {
+     "id": "1.3",
+     "title": "Subagent Invocation and Context Passing",
+     "url": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-3-subagent-invocation-context"
+    },
+    {
+     "id": "1.4",
+     "title": "Workflow Enforcement and Handoff",
+     "url": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-4-workflow-enforcement-handoff"
+    },
+    {
+     "id": "1.5",
+     "title": "Agent SDK Hooks",
+     "url": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-5-agent-sdk-hooks"
+    },
+    {
+     "id": "1.6",
+     "title": "Task Decomposition Strategies",
+     "url": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-6-task-decomposition"
+    },
+    {
+     "id": "1.7",
+     "title": "Session State and Resumption",
+     "url": "https://claudecertificationguide.com/learn/1-agentic-architecture/1-7-session-state-resumption"
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "Tool Design & MCP Integration",
+   "weight": 18,
+   "lessons": [
+    {
+     "id": "2.1",
+     "title": "Tool Interface Design",
+     "url": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-1-tool-schema-design"
+    },
+    {
+     "id": "2.2",
+     "title": "Structured Error Responses",
+     "url": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-2-structured-error-responses"
+    },
+    {
+     "id": "2.3",
+     "title": "Tool Distribution & Tool Choice",
+     "url": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-3-tool-distribution-choice"
+    },
+    {
+     "id": "2.4",
+     "title": "MCP Server Integration",
+     "url": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-4-mcp-server-integration"
+    },
+    {
+     "id": "2.5",
+     "title": "Built-in Tools",
+     "url": "https://claudecertificationguide.com/learn/2-tool-design-mcp/2-5-built-in-tools"
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Claude Code Configuration & Workflows",
+   "weight": 20,
+   "lessons": [
+    {
+     "id": "3.1",
+     "title": "CLAUDE.md Hierarchy, Scoping & Modular Organisation",
+     "url": "https://claudecertificationguide.com/learn/3-claude-code-config/3-1-claude-md-hierarchy"
+    },
+    {
+     "id": "3.2",
+     "title": "Custom Slash Commands and Skills",
+     "url": "https://claudecertificationguide.com/learn/3-claude-code-config/3-2-slash-commands-skills"
+    },
+    {
+     "id": "3.3",
+     "title": "Path-Specific Rules",
+     "url": "https://claudecertificationguide.com/learn/3-claude-code-config/3-3-path-specific-rules"
+    },
+    {
+     "id": "3.4",
+     "title": "Plan Mode vs Direct Execution",
+     "url": "https://claudecertificationguide.com/learn/3-claude-code-config/3-4-plan-mode-execution"
+    },
+    {
+     "id": "3.5",
+     "title": "Iterative Refinement Techniques",
+     "url": "https://claudecertificationguide.com/learn/3-claude-code-config/3-5-iterative-refinement"
+    },
+    {
+     "id": "3.6",
+     "title": "CI/CD Integration",
+     "url": "https://claudecertificationguide.com/learn/3-claude-code-config/3-6-cicd-integration"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Prompt Engineering & Structured Output",
+   "weight": 20,
+   "lessons": [
+    {
+     "id": "4.1",
+     "title": "System Prompts with Explicit Criteria",
+     "url": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-1-system-prompts"
+    },
+    {
+     "id": "4.2",
+     "title": "Few-Shot Prompting",
+     "url": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-2-few-shot-prompting"
+    },
+    {
+     "id": "4.3",
+     "title": "Structured Output with Tool Use",
+     "url": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-3-structured-output"
+    },
+    {
+     "id": "4.4",
+     "title": "Validation, Retry & Feedback Loops",
+     "url": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-4-validation-retry-loops"
+    },
+    {
+     "id": "4.5",
+     "title": "Batch Processing Strategies",
+     "url": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-5-batch-processing"
+    },
+    {
+     "id": "4.6",
+     "title": "Multi-Instance and Multi-Pass Review",
+     "url": "https://claudecertificationguide.com/learn/4-prompt-engineering/4-6-multi-pass-review"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "Context Management & Reliability",
+   "weight": 15,
+   "lessons": [
+    {
+     "id": "5.1",
+     "title": "Context Window Management",
+     "url": "https://claudecertificationguide.com/learn/5-context-management/5-1-context-window-management"
+    },
+    {
+     "id": "5.2",
+     "title": "Escalation & Ambiguity Resolution",
+     "url": "https://claudecertificationguide.com/learn/5-context-management/5-2-escalation-ambiguity"
+    },
+    {
+     "id": "5.3",
+     "title": "Error Propagation in Multi-Agent Systems",
+     "url": "https://claudecertificationguide.com/learn/5-context-management/5-3-error-propagation"
+    },
+    {
+     "id": "5.4",
+     "title": "Codebase Exploration & Context Degradation",
+     "url": "https://claudecertificationguide.com/learn/5-context-management/5-4-codebase-exploration"
+    },
+    {
+     "id": "5.5",
+     "title": "Human Review & Confidence Calibration",
+     "url": "https://claudecertificationguide.com/learn/5-context-management/5-5-human-review-calibration"
+    },
+    {
+     "id": "5.6",
+     "title": "Information Provenance & Multi-Source Synthesis",
+     "url": "https://claudecertificationguide.com/learn/5-context-management/5-6-information-provenance"
+    }
+   ]
+  }
+ ],
+ "cards": [
+  {
+   "id": "1.1-k1",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "takeaway",
+   "front": "What are the four steps of the agentic loop lifecycle?",
+   "back": "1) Send request (history + prior tool results) via the Messages API. 2) Inspect stop_reason. 3) If \"tool_use\": execute tools, append tool results to history, send again. 4) If \"end_turn\": done — present the final response."
+  },
+  {
+   "id": "1.1-k2",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "takeaway",
+   "front": "What is the ONLY reliable signal for loop control?",
+   "back": "The stop_reason field. It is deterministic and unambiguous. Never use natural-language parsing, text-content checks, or arbitrary iteration caps as the primary stopping mechanism."
+  },
+  {
+   "id": "1.1-k3",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "takeaway",
+   "front": "Which stop_reason values does a basic loop branch on (exam v1.0)?",
+   "back": "\"tool_use\" → continue the loop. \"end_turn\" → terminate."
+  },
+  {
+   "id": "1.1-k4",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "takeaway",
+   "front": "Where do agentic loops most commonly break?",
+   "back": "Step 3 — tool results MUST be appended to conversation history. Otherwise Claude never sees what the tool returned and has nothing new to act on."
+  },
+  {
+   "id": "1.1-k5",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "takeaway",
+   "front": "Beyond tool_use / end_turn, what other stop_reason values must a production loop handle?",
+   "back": "pause_turn, max_tokens, stop_sequence, refusal, model_context_window_exceeded. Treat anything other than end_turn as \"not finished — check why\", not as tool_use."
+  },
+  {
+   "id": "1.1-k6",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "takeaway",
+   "front": "Model-driven decisions vs pre-configured decision trees — which does the exam favour, and what's the exception?",
+   "back": "Model-driven (Claude picks tools from context) because it flexes to unplanned situations. Exception: financial, security, regulatory logic needing deterministic compliance → programmatic enforcement (see 1.4)."
+  },
+  {
+   "id": "1.1-k7",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "takeaway",
+   "front": "Name the three loop-termination anti-patterns.",
+   "back": "1) Parsing natural language (\"I'm done\"). 2) Arbitrary iteration caps as the primary stop. 3) Checking content[0].type == \"text\" — text can accompany tool_use blocks."
+  },
+  {
+   "id": "1.1-k8",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "takeaway",
+   "front": "Common distractor: an iteration cap to fix premature termination. Accept or reject?",
+   "back": "Reject. Caps address runaway loops, not premature exits. The fix for premature termination is always to check stop_reason correctly. Caps are fine only as a safety net."
+  },
+  {
+   "id": "1.1-x1",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "trap",
+   "front": "Using response.content[0].type == 'text' to determine loop completion",
+   "back": "Claude can return text alongside tool_use blocks in the same response. Text presence does not indicate completion. The stop_reason field is the authoritative signal."
+  },
+  {
+   "id": "1.1-x2",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "trap",
+   "front": "Setting arbitrary iteration caps (e.g., 'stop after 10 loops') as the primary stopping mechanism",
+   "back": "Iteration caps either cut off useful work or run unnecessary iterations. They are acceptable as a safety net, not as the primary loop control. Use stop_reason instead."
+  },
+  {
+   "id": "1.1-x3",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "trap",
+   "front": "Parsing natural language phrases like 'I'm done' or 'task complete' to decide loop termination",
+   "back": "Natural language is ambiguous and unreliable. The stop_reason field provides a deterministic, unambiguous signal for loop control."
+  },
+  {
+   "id": "1.1-x4",
+   "domain": 1,
+   "lesson": "1.1",
+   "type": "trap",
+   "front": "Forcing tool_choice to 'any' to prevent the agent from returning text",
+   "back": "This forces tool use even when the agent is genuinely finished, creating an infinite loop. Let the model signal completion naturally via stop_reason."
+  },
+  {
+   "id": "1.2-k1",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "takeaway",
+   "front": "What is the fundamental communication rule in hub-and-spoke orchestration?",
+   "back": "All inter-subagent communication flows through the coordinator. Subagents never communicate directly with each other, regardless of efficiency concerns."
+  },
+  {
+   "id": "1.2-k2",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "takeaway",
+   "front": "Do subagents inherit the coordinator's conversation history and system prompt?",
+   "back": "No. Subagents start with only what's explicitly included in their prompt — no coordinator history, system prompt, or other subagents' results unless passed directly."
+  },
+  {
+   "id": "1.2-k3",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "takeaway",
+   "front": "A coordinator invokes the same subagent twice. Does the second call remember the first?",
+   "back": "No. Each invocation is completely independent; subagents don't share memory between invocations."
+  },
+  {
+   "id": "1.2-k4",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "takeaway",
+   "front": "What three benefits does the exam attribute to hub-and-spoke centralisation?",
+   "back": "Observability (single logging point), consistent error handling (uniform recovery policies), and controlled information flow (coordinator decides what context each subagent gets)."
+  },
+  {
+   "id": "1.2-k5",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "takeaway",
+   "front": "Should the coordinator route every query through all subagents?",
+   "back": "No. It dynamically selects which subagents to invoke based on the query. Simple queries may need only one."
+  },
+  {
+   "id": "1.2-k6",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "takeaway",
+   "front": "What must a coordinator do when assigning research to several subagents?",
+   "back": "Partition scope distinctly (different subtopics or source types per subagent) to minimise duplication."
+  },
+  {
+   "id": "1.2-k7",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "takeaway",
+   "front": "Is one coordinator cycle enough to produce complete output?",
+   "back": "No. The coordinator iteratively evaluates synthesis output for gaps and re-delegates with targeted queries until coverage is sufficient."
+  },
+  {
+   "id": "1.2-k8",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "takeaway",
+   "front": "Output misses entire categories that were in scope. Where do you trace the failure?",
+   "back": "To the coordinator's task decomposition — it likely never assigned those subtopics to any subagent."
+  },
+  {
+   "id": "1.2-x1",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "trap",
+   "front": "Blaming downstream subagents for coverage gaps when the coordinator's task decomposition was too narrow",
+   "back": "Subagents research what they are assigned. If the coordinator only assigns solar and wind for renewable energy, nobody covers geothermal or tidal. Trace failures to their origin — the coordinator's decomposition."
+  },
+  {
+   "id": "1.2-x2",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "trap",
+   "front": "Assuming subagents share memory or inherit the coordinator's conversation history",
+   "back": "Subagents have completely isolated context. Every piece of information must be explicitly passed in the subagent's prompt."
+  },
+  {
+   "id": "1.2-x3",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "trap",
+   "front": "Proposing direct inter-subagent communication as an efficiency improvement",
+   "back": "It breaks observability, consistent error handling, and controlled information flow. All communication must flow through the coordinator."
+  },
+  {
+   "id": "1.2-x4",
+   "domain": 1,
+   "lesson": "1.2",
+   "type": "trap",
+   "front": "Adding more subagents to fix a decomposition problem",
+   "back": "More subagents just receive equally narrow assignments. The fix is improving the coordinator's decomposition logic."
+  },
+  {
+   "id": "1.3-k1",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "takeaway",
+   "front": "What is the hard requirement for a coordinator to spawn subagents?",
+   "back": "The coordinator's allowedTools must include \"Task\" (or \"Agent\", its current name in Claude Code). Without it, no subagent can be invoked however they're defined."
+  },
+  {
+   "id": "1.3-k2",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "takeaway",
+   "front": "What three elements does an AgentDefinition specify?",
+   "back": "Description (what it does), system prompt (instructions), and tool restrictions (scoped to its role — a few focused tools, not 18)."
+  },
+  {
+   "id": "1.3-k3",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "takeaway",
+   "front": "Context-passing Rule 1?",
+   "back": "Include complete findings from prior agents in full. Subagents cannot \"look up\" prior results — the coordinator passes everything explicitly."
+  },
+  {
+   "id": "1.3-k4",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "takeaway",
+   "front": "Context-passing Rule 2?",
+   "back": "Use structured formats separating content from metadata: source URL, document name, page number, confidence alongside every claim, so downstream agents can attribute."
+  },
+  {
+   "id": "1.3-k5",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "takeaway",
+   "front": "Context-passing Rule 3?",
+   "back": "Coordinator prompts specify goals and quality criteria, not step-by-step procedures — so subagents can adapt to unexpected situations."
+  },
+  {
+   "id": "1.3-k6",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "takeaway",
+   "front": "How do you invoke independent subagents with minimum latency?",
+   "back": "Emit multiple Task tool calls in a single coordinator response — they spawn in parallel — instead of one per turn."
+  },
+  {
+   "id": "1.3-k7",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "takeaway",
+   "front": "fork_session vs --resume?",
+   "back": "--resume appends: continues the same session. fork_session branches: a new independent session from a copy of the original's history."
+  },
+  {
+   "id": "1.3-k8",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "takeaway",
+   "front": "What metadata should accompany each research finding passed between agents?",
+   "back": "claim, source_url, document_name, page_number, confidence, retrieved_by — so synthesis has full attribution."
+  },
+  {
+   "id": "1.3-x1",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "trap",
+   "front": "Assuming subagents automatically have access to the coordinator's conversation history or other subagents' outputs",
+   "back": "Subagents have isolated context. Everything they need must be explicitly included in their prompt by the coordinator."
+  },
+  {
+   "id": "1.3-x2",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "trap",
+   "front": "Blaming the synthesis agent for missing citations when the real issue is context passing without metadata",
+   "back": "The synthesis agent can only cite sources it was given. If the coordinator passes content without URLs and document names, citations are impossible."
+  },
+  {
+   "id": "1.3-x3",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "trap",
+   "front": "Proposing sequential subagent invocation for tasks that can run independently",
+   "back": "Sequential invocation adds latency. Spawn independent tasks in parallel with multiple Task calls in one coordinator response."
+  },
+  {
+   "id": "1.3-x4",
+   "domain": 1,
+   "lesson": "1.3",
+   "type": "trap",
+   "front": "Confusing fork_session with --resume",
+   "back": "fork_session branches from a copy of history; --resume appends to the same session. Fork to compare approaches, resume to carry on the same work."
+  },
+  {
+   "id": "1.4-k1",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "takeaway",
+   "front": "Prompt-based guidance vs programmatic enforcement — key difference?",
+   "back": "Prompt guidance is probabilistic (~90–95%); programmatic enforcement is deterministic (100%)."
+  },
+  {
+   "id": "1.4-k2",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "takeaway",
+   "front": "When must you use programmatic enforcement rather than prompts?",
+   "back": "Financial, security, and compliance operations where a single failure means monetary loss, breach, or legal penalty. Low-stakes things (formatting) can use prompts."
+  },
+  {
+   "id": "1.4-k3",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "takeaway",
+   "front": "How do prerequisite gates enforce ordering?",
+   "back": "Code-level checks physically block tool execution until preconditions are met (e.g., identity verified before refund) — the model cannot bypass them."
+  },
+  {
+   "id": "1.4-k4",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "takeaway",
+   "front": "What can the SubagentStart hook do — and not do?",
+   "back": "Fires when a subagent spawns. Cannot block the spawn, but can add context via additionalContext to the subagent's initial prompt."
+  },
+  {
+   "id": "1.4-k5",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "takeaway",
+   "front": "How does SubagentStop enforce quality on subagent output?",
+   "back": "Fires at completion; exit code 2 sends the subagent back to work. It cannot rewrite the output directly."
+  },
+  {
+   "id": "1.4-k6",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "takeaway",
+   "front": "What fields must a structured human handoff contain?",
+   "back": "Customer ID, conversation summary, root cause analysis, refund amount (if applicable), recommended action — humans don't have the transcript."
+  },
+  {
+   "id": "1.4-k7",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "takeaway",
+   "front": "How should a multi-concern customer request be handled?",
+   "back": "Decompose into distinct items, investigate each (in parallel, shared context), synthesise one unified resolution covering all concerns."
+  },
+  {
+   "id": "1.4-k8",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "takeaway",
+   "front": "Why don't stronger system prompts fix high-stakes compliance failures?",
+   "back": "They lower the failure rate probabilistically but never reach 0%. Deterministic guarantees need programmatic enforcement."
+  },
+  {
+   "id": "1.4-x1",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "trap",
+   "front": "Enhanced system prompt instructions as the fix for high-stakes compliance failures",
+   "back": "Stronger prompts remain probabilistic and can't guarantee a 0% failure rate. Financial/security/compliance needs programmatic enforcement."
+  },
+  {
+   "id": "1.4-x2",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "trap",
+   "front": "Few-shot examples as sufficient for guaranteed compliance",
+   "back": "Examples improve behaviour probabilistically but can't provide 100% enforcement. Use programmatic prerequisite gates."
+  },
+  {
+   "id": "1.4-x3",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "trap",
+   "front": "Routing classifiers proposed to fix per-agent compliance issues",
+   "back": "Routing decides which agent handles a request, not workflow enforcement inside an agent. The failure is in the agent's execution sequence."
+  },
+  {
+   "id": "1.4-x4",
+   "domain": 1,
+   "lesson": "1.4",
+   "type": "trap",
+   "front": "Handoff summaries that omit critical fields like customer ID or recommended action",
+   "back": "Human agents can't see transcripts. Handoffs must be self-contained: customer ID, summary, root cause, refund amount, recommended action."
+  },
+  {
+   "id": "1.5-k1",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "takeaway",
+   "front": "When exactly does a PostToolUse hook run?",
+   "back": "After the tool executes but before the model processes the result — so it can transform data before the model sees it."
+  },
+  {
+   "id": "1.5-k2",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "takeaway",
+   "front": "What can a PreToolUse hook return?",
+   "back": "A permissionDecision of allow, deny, ask or defer, plus an optional updatedInput that rewrites the tool's arguments."
+  },
+  {
+   "id": "1.5-k3",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "takeaway",
+   "front": "Hooks vs prompts — decision rule?",
+   "back": "Hooks for 100%-compliance requirements (a single failure = business loss or legal risk). Prompts for preferences where occasional deviation is acceptable."
+  },
+  {
+   "id": "1.5-k4",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "takeaway",
+   "front": "Primary use of PostToolUse in multi-tool environments?",
+   "back": "Normalising heterogeneous formats from different tools (dates, units, status codes) into a consistent representation before the model sees them."
+  },
+  {
+   "id": "1.5-k5",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "takeaway",
+   "front": "PreToolUse vs PostToolUse for preventing policy violations?",
+   "back": "PreToolUse blocks before execution — the action never happens. PostToolUse runs after; the action already occurred."
+  },
+  {
+   "id": "1.5-k6",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "takeaway",
+   "front": "Using PostToolUse to block refunds above a threshold — what goes wrong?",
+   "back": "The refund has already been processed; the hook can stop the loop but can't undo the transaction. Use PreToolUse."
+  },
+  {
+   "id": "1.5-k7",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "takeaway",
+   "front": "Exam keyword signal for hooks?",
+   "back": "\"must always\", \"guaranteed\", \"enforce\", compliance/regulatory/audit → hooks / programmatic enforcement, not prompts."
+  },
+  {
+   "id": "1.5-x1",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "trap",
+   "front": "Using PostToolUse hooks to block policy-violating actions",
+   "back": "PostToolUse runs after execution — the action has already happened. Use PreToolUse to block before it happens."
+  },
+  {
+   "id": "1.5-x2",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "trap",
+   "front": "Enhanced prompt instructions as the solution for 100% compliance requirements",
+   "back": "Prompts are probabilistic. Financial, regulatory, and security enforcement needs hooks for deterministic guarantees."
+  },
+  {
+   "id": "1.5-x3",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "trap",
+   "front": "Suggesting model-side data transformation instead of PostToolUse hooks for normalisation",
+   "back": "Relying on the model to normalise formats introduces inconsistency. PostToolUse hooks guarantee clean, consistent data every time."
+  },
+  {
+   "id": "1.5-x4",
+   "domain": 1,
+   "lesson": "1.5",
+   "type": "trap",
+   "front": "Confusing the direction of hooks — PostToolUse runs after execution, PreToolUse runs before",
+   "back": "PostToolUse transforms results after a tool runs; PreToolUse blocks/modifies calls before. Wrong direction = missing prevention or blocking completed work."
+  },
+  {
+   "id": "1.6-k1",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "takeaway",
+   "front": "When do fixed sequential pipelines fit?",
+   "back": "Predictable, structured tasks whose steps are known in advance (code review, document processing). Consistent and reliable, but can't adapt to unexpected findings."
+  },
+  {
+   "id": "1.6-k2",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "takeaway",
+   "front": "What is dynamic adaptive decomposition and when is it right?",
+   "back": "Subtasks are generated from discoveries at each step, so the plan evolves. Use for open-ended investigation where full scope is unknown upfront (legacy exploration, debugging)."
+  },
+  {
+   "id": "1.6-k3",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "takeaway",
+   "front": "Symptoms of attention dilution?",
+   "back": "Detailed feedback on early items, increasingly shallow analysis on later ones; identical patterns flagged in one place and approved in another."
+  },
+  {
+   "id": "1.6-k4",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "takeaway",
+   "front": "Correct architectural fix for attention dilution?",
+   "back": "Per-item local analysis passes (full attention per item) plus a separate cross-file integration pass for cross-cutting concerns."
+  },
+  {
+   "id": "1.6-k5",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "takeaway",
+   "front": "Why doesn't a bigger model / larger context window fix attention dilution?",
+   "back": "It's an architectural problem, not a capability one. Too many items in one pass gives inconsistent depth regardless of model or context size."
+  },
+  {
+   "id": "1.6-k6",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "takeaway",
+   "front": "Orchestration pattern quick map?",
+   "back": "Sequential: step needs prior output. Parallel: independent subtasks / latency. Pipeline: specialised stages. Dynamic adaptive: complexity unknown upfront. Hub-and-spoke: coordinator delegates to specialists."
+  },
+  {
+   "id": "1.6-x1",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "trap",
+   "front": "Suggesting a more powerful model or larger context window as the fix for attention dilution",
+   "back": "Attention dilution is architectural. The fix is multi-pass architecture, not model power or context size."
+  },
+  {
+   "id": "1.6-x2",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "trap",
+   "front": "Proposing a single-pass review with better prompts as equivalent to multi-pass architecture",
+   "back": "Better prompts raise average quality but don't fix attention allocation. Multi-pass guarantees each item gets dedicated attention."
+  },
+  {
+   "id": "1.6-x3",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "trap",
+   "front": "Applying fixed pipelines to open-ended investigation tasks",
+   "back": "Fixed pipelines can't respond to unexpected findings. Use dynamic adaptive decomposition when scope is unknown."
+  },
+  {
+   "id": "1.6-x4",
+   "domain": 1,
+   "lesson": "1.6",
+   "type": "trap",
+   "front": "Batching files into groups without adding a cross-file integration pass",
+   "back": "Batching reduces dilution within a batch but misses cross-batch issues. A dedicated integration pass catches data-flow and consistency problems."
+  },
+  {
+   "id": "1.7-k1",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "takeaway",
+   "front": "Three session management options?",
+   "back": "Resume (continuation), fork_session (divergent exploration), fresh start with summary injection (stale context)."
+  },
+  {
+   "id": "1.7-k2",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "takeaway",
+   "front": "When should you use --resume?",
+   "back": "When prior context is mostly valid and files haven't changed significantly since the last session."
+  },
+  {
+   "id": "1.7-k3",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "takeaway",
+   "front": "When is fork_session the right choice?",
+   "back": "To explore divergent approaches from the same baseline analysis — an independent branch, original unchanged."
+  },
+  {
+   "id": "1.7-k4",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "takeaway",
+   "front": "When should you start fresh with summary injection?",
+   "back": "When tool results are stale (files changed, APIs updated), context has degraded, or you need a clean baseline that keeps learned knowledge."
+  },
+  {
+   "id": "1.7-k5",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "takeaway",
+   "front": "What is the stale context problem?",
+   "back": "Resuming after files changed: the agent reasons from cached tool results that no longer reflect current files → contradictory advice."
+  },
+  {
+   "id": "1.7-k6",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "takeaway",
+   "front": "Why is resume-then-re-read insufficient after file changes?",
+   "back": "The stale tool results remain in history; the model may still reference old information, especially for tangential decisions."
+  },
+  {
+   "id": "1.7-k7",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "takeaway",
+   "front": "What is targeted re-analysis?",
+   "back": "Tell the agent which specific files changed and re-analyse only those, rather than re-exploring the whole codebase."
+  },
+  {
+   "id": "1.7-k8",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "takeaway",
+   "front": "Stale-context signals?",
+   "back": "Repetition, contradictions, ignoring recent results. Fix: fresh start with a curated summary."
+  },
+  {
+   "id": "1.7-x1",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "trap",
+   "front": "Suggesting full re-exploration of a 50-file codebase when only 3 files changed",
+   "back": "Wasteful. Tell the agent about the 3 changed files for targeted re-analysis; the prior summary covers the rest."
+  },
+  {
+   "id": "1.7-x2",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "trap",
+   "front": "Recommending --resume after files have been modified",
+   "back": "Resume keeps stale tool results in history → contradictory advice. Fresh start with summary injection avoids this."
+  },
+  {
+   "id": "1.7-x3",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "trap",
+   "front": "Confusing fork_session with --resume",
+   "back": "fork_session branches from a copy (original unchanged); --resume appends. In the SDK fork_session is set beside resume — the choice is append or branch."
+  },
+  {
+   "id": "1.7-x4",
+   "domain": 1,
+   "lesson": "1.7",
+   "type": "trap",
+   "front": "Using fork_session to handle stale context after file changes",
+   "back": "A fork inherits the stale tool results. Fresh start with summary injection is the correct fix for stale data."
+  },
+  {
+   "id": "2.1-k1",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "takeaway",
+   "front": "What is the PRIMARY mechanism Claude uses for tool selection?",
+   "back": "Tool descriptions — not supplementary metadata or an afterthought."
+  },
+  {
+   "id": "2.1-k2",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "takeaway",
+   "front": "Five elements of a production-grade tool description?",
+   "back": "Purpose; expected inputs with types and constraints; example queries; edge cases and limitations; explicit boundaries versus similar tools."
+  },
+  {
+   "id": "2.1-k3",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "takeaway",
+   "front": "When is expanding tool descriptions the right fix for misrouting — and when not?",
+   "back": "Right when the agent has a workable number of tools but can't tell them apart. Not when the toolkit itself is overloaded (beyond ~4–5 tools per agent)."
+  },
+  {
+   "id": "2.1-k4",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "takeaway",
+   "front": "Why are few-shot examples a poor FIRST step for tool misrouting?",
+   "back": "They add token overhead without fixing the root cause — weak descriptions. Fix descriptions first."
+  },
+  {
+   "id": "2.1-k5",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "takeaway",
+   "front": "When several remedies would work, which does the exam favour?",
+   "back": "Low-effort, high-leverage fixes: better descriptions before routing classifiers, scoped access before full access, community servers before custom builds."
+  },
+  {
+   "id": "2.1-k6",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "takeaway",
+   "front": "How should a vague generic tool be improved?",
+   "back": "Split it into purpose-specific tools with defined input/output contracts and narrow, clearly described jobs."
+  },
+  {
+   "id": "2.1-k7",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "takeaway",
+   "front": "What can silently override well-written tool descriptions?",
+   "back": "Keyword-sensitive instructions in the system prompt that create unintended tool associations — review the system prompt after updating descriptions."
+  },
+  {
+   "id": "2.1-x1",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "trap",
+   "front": "Choosing few-shot examples to fix tool misrouting caused by minimal descriptions",
+   "back": "Few-shot adds token overhead without fixing the root cause. The model is confused because descriptions don't differentiate the tools — fix descriptions first."
+  },
+  {
+   "id": "2.1-x2",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "trap",
+   "front": "Implementing a routing classifier as the first step to fix tool selection",
+   "back": "Over-engineered as a first response; bypasses the LLM's language understanding and adds infrastructure the exam doesn't consider proportionate."
+  },
+  {
+   "id": "2.1-x3",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "trap",
+   "front": "Consolidating similar tools into one as the first step",
+   "back": "Consolidation is a valid long-term choice but costs more than expanding descriptions. The exam favours low-effort, high-leverage first steps."
+  },
+  {
+   "id": "2.1-x4",
+   "domain": 2,
+   "lesson": "2.1",
+   "type": "trap",
+   "front": "Ignoring system prompt wording after updating tool descriptions",
+   "back": "Keyword-sensitive system prompt instructions can silently override good descriptions and create unintended tool associations."
+  },
+  {
+   "id": "2.2-k1",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "takeaway",
+   "front": "What is the isError flag for in MCP tool responses?",
+   "back": "It tells the model the tool execution failed, so it reasons about recovery instead of treating error text as a successful result."
+  },
+  {
+   "id": "2.2-k2",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "takeaway",
+   "front": "Protocol errors vs tool execution errors?",
+   "back": "Protocol errors: JSON-RPC errors for malformed requests (unknown tool, invalid schema). Execution errors: result objects with isError: true — the tool ran but failed."
+  },
+  {
+   "id": "2.2-k3",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "takeaway",
+   "front": "Four error categories and their recovery?",
+   "back": "Transient → retry after delay. Validation → fix input and resend. Business → escalate / alternative workflow. Permission → different credentials or escalate."
+  },
+  {
+   "id": "2.2-k4",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "takeaway",
+   "front": "When is isRetryable true?",
+   "back": "Only for transient errors (valid request, system temporarily unavailable). All other categories are false — something must change first."
+  },
+  {
+   "id": "2.2-k5",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "takeaway",
+   "front": "Distinction the exam tests most directly here?",
+   "back": "Access failure (couldn't reach the data source → isError: true) vs valid empty result (query succeeded, no matches → isError: false)."
+  },
+  {
+   "id": "2.2-k6",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "takeaway",
+   "front": "Why does confusing access failures with empty results break recovery?",
+   "back": "The agent retries a successful query that legitimately found nothing — wasted effort, possibly wrong escalation."
+  },
+  {
+   "id": "2.2-k7",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "takeaway",
+   "front": "Three metadata fields of a structured error?",
+   "back": "errorCategory (transient/validation/business/permission), isRetryable (boolean), description (explanation + recovery guidance)."
+  },
+  {
+   "id": "2.2-k8",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "takeaway",
+   "front": "Error-handling principle for subagents?",
+   "back": "Recover locally from transient failures; propagate only what can't be resolved locally — with partial results and what was attempted."
+  },
+  {
+   "id": "2.2-x1",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "trap",
+   "front": "Retrying when a tool returns an empty result from a successful query",
+   "back": "Empty from a successful query means no data matches. Retrying returns the same. Accept the result and respond accordingly."
+  },
+  {
+   "id": "2.2-x2",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "trap",
+   "front": "Using generic error messages like 'Operation failed' without structured metadata",
+   "back": "Without errorCategory, isRetryable and description, the agent can't tell transient failures from business-rule violations."
+  },
+  {
+   "id": "2.2-x3",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "trap",
+   "front": "Treating business errors as retryable",
+   "back": "A policy violation (e.g., refund over limit) never resolves on retry. Take an alternative path such as escalation."
+  },
+  {
+   "id": "2.2-x4",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "trap",
+   "front": "Marking a validation error isRetryable: true because the agent can recover from it",
+   "back": "isRetryable asks whether resending THIS EXACT call can work. A malformed ID fails every time (false). The agent recovers by correcting input; errorCategory carries that instruction."
+  },
+  {
+   "id": "2.2-x5",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "trap",
+   "front": "Reading isRetryable: false as 'abandon the task'",
+   "back": "Three categories are non-retryable but only two are dead ends. Validation = fix input; business and permission = alternative path or different principal."
+  },
+  {
+   "id": "2.2-x6",
+   "domain": 2,
+   "lesson": "2.2",
+   "type": "trap",
+   "front": "Silently suppressing subagent errors by returning empty results as success",
+   "back": "Hides failure from the coordinator — it can't distinguish 'found nothing' from 'could not search' and may produce incomplete output."
+  },
+  {
+   "id": "2.3-k1",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "takeaway",
+   "front": "Optimal number of tools per agent?",
+   "back": "About 4–5, scoped to the agent's role. More tools degrade selection reliability."
+  },
+  {
+   "id": "2.3-k2",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "takeaway",
+   "front": "When do you consolidate tools into one parameterised tool?",
+   "back": "When they're variations on one job with the same shape (data in, operation, data out)."
+  },
+  {
+   "id": "2.3-k3",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "takeaway",
+   "front": "Decision rule: sharpen descriptions vs split by role vs consolidate?",
+   "back": "Few confusing tools → sharpen descriptions. Different jobs → split by role (4–5 each). Variations on one job → consolidate into a parameterised tool."
+  },
+  {
+   "id": "2.3-k4",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "takeaway",
+   "front": "tool_choice: \"auto\"?",
+   "back": "Model decides whether to call a tool or reply with text. Default for general operation."
+  },
+  {
+   "id": "2.3-k5",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "takeaway",
+   "front": "tool_choice: \"any\"?",
+   "back": "Model MUST call a tool but picks which. Guarantees structured output from one of several schemas rather than plain text."
+  },
+  {
+   "id": "2.3-k6",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "takeaway",
+   "front": "Forced tool_choice ({type: \"tool\", name})?",
+   "back": "Model MUST call that specific tool. Enforces a mandatory workflow step — can't be skipped or reordered."
+  },
+  {
+   "id": "2.3-k7",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "takeaway",
+   "front": "What is a scoped cross-role tool?",
+   "back": "A constrained version of another role's capability given directly to an agent (e.g., verify_fact on the synthesis agent) to avoid coordinator round-trips for high-frequency simple operations."
+  },
+  {
+   "id": "2.3-k8",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "takeaway",
+   "front": "How does least privilege apply to tools?",
+   "back": "Replace generic tools with constrained ones that do exactly what the agent needs (load_document instead of fetch_url)."
+  },
+  {
+   "id": "2.3-x1",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "trap",
+   "front": "Routing all simple verification requests through the coordinator when 85% are simple lookups",
+   "back": "Each round-trip adds hops. A scoped verify_fact tool on the synthesis agent handles the simple 85% directly and cuts latency substantially."
+  },
+  {
+   "id": "2.3-x2",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "trap",
+   "front": "Using tool_choice 'auto' when structured output is required",
+   "back": "With auto the model may reply in text. Use 'any' to guarantee a tool call, or forced selection for a specific tool."
+  },
+  {
+   "id": "2.3-x3",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "trap",
+   "front": "Giving an agent 18 tools and expecting reliable selection",
+   "back": "Selection reliability drops as tool count rises. Aim for 4–5 per agent."
+  },
+  {
+   "id": "2.3-x4",
+   "domain": 2,
+   "lesson": "2.3",
+   "type": "trap",
+   "front": "Giving a subagent a generic fetch_url tool when a constrained load_document would suffice",
+   "back": "Generic tools enable misuse. Constrained alternatives enforce least privilege and make purpose clearer."
+  },
+  {
+   "id": "2.4-k1",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "takeaway",
+   "front": "Where does team-wide MCP server config live?",
+   "back": ".mcp.json at the project root — version-controlled and shared with everyone who clones the repo."
+  },
+  {
+   "id": "2.4-k2",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "takeaway",
+   "front": "What is ~/.claude.json for (MCP)?",
+   "back": "User-level: personal, experimental or test servers. Not version-controlled, not shared."
+  },
+  {
+   "id": "2.4-k3",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "takeaway",
+   "front": "How do you keep credentials out of .mcp.json?",
+   "back": "Environment variable expansion: ${GITHUB_TOKEN}. Each developer sets it locally; secrets never enter history."
+  },
+  {
+   "id": "2.4-k4",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "takeaway",
+   "front": "What does ${VAR:-default} do?",
+   "back": "Expands to VAR when set, falls back to default when unset — good for machine-specific paths."
+  },
+  {
+   "id": "2.4-k5",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "takeaway",
+   "front": "MCP resources vs tools — what do resources add?",
+   "back": "Resources expose content catalogues (schemas, docs, summaries) upfront, cutting wasted exploratory tool calls. Tools perform actions."
+  },
+  {
+   "id": "2.4-k6",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "takeaway",
+   "front": "Community vs custom MCP server?",
+   "back": "Community for standard integrations (Jira, GitHub, Slack). Custom only for team-specific workflows community servers can't handle."
+  },
+  {
+   "id": "2.4-k7",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "takeaway",
+   "front": "Why do sparse MCP tool descriptions cause problems?",
+   "back": "The agent prefers built-in tools with rich descriptions. Enhance MCP descriptions to explain capabilities and outputs."
+  },
+  {
+   "id": "2.4-k8",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "takeaway",
+   "front": "How are MCP tools discovered?",
+   "back": "Tools from all configured servers (project and user level) are discovered at connection time and available simultaneously."
+  },
+  {
+   "id": "2.4-x1",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "trap",
+   "front": "Building a custom MCP server for a standard integration like Jira",
+   "back": "Evaluate community servers first. Custom builds are justified only for team-specific workflows."
+  },
+  {
+   "id": "2.4-x2",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "trap",
+   "front": "Putting team-wide MCP server configuration in ~/.claude.json",
+   "back": "~/.claude.json is personal and unshared. Team-wide servers belong in .mcp.json at the project root."
+  },
+  {
+   "id": "2.4-x3",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "trap",
+   "front": "Committing credentials directly in .mcp.json instead of using environment variable expansion",
+   "back": "Credentials in version control are a security risk. Use ${GITHUB_TOKEN} so each dev sets tokens locally."
+  },
+  {
+   "id": "2.4-x4",
+   "domain": 2,
+   "lesson": "2.4",
+   "type": "trap",
+   "front": "Leaving MCP tool descriptions sparse, causing the agent to prefer built-in tools",
+   "back": "The model defaults to tools it understands best. Enhance MCP descriptions to compete for selection."
+  },
+  {
+   "id": "2.5-k1",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "takeaway",
+   "front": "Grep vs Glob?",
+   "back": "Grep searches file CONTENTS (function calls, error messages, imports). Glob matches file PATHS/NAMES (**/*.test.tsx, config files)."
+  },
+  {
+   "id": "2.5-k2",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "takeaway",
+   "front": "Tool sequence to find callers of a deprecated function and their tests?",
+   "back": "Grep the function name → callers; Glob for sibling test files by naming convention; Grep again for wrapper names to catch indirect usage."
+  },
+  {
+   "id": "2.5-k3",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "takeaway",
+   "front": "Correct approach to modifying a file?",
+   "back": "Edit first with a short unique anchor. On non-unique match, Read + Write is the exam's documented fallback (real Claude Code also offers widening old_string / replace_all)."
+  },
+  {
+   "id": "2.5-k4",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "takeaway",
+   "front": "Incremental codebase understanding strategy?",
+   "back": "Grep for entry points → Read to trace flows and imports → Grep for wrapper/exported names → Read only justified files. Never load everything upfront."
+  },
+  {
+   "id": "2.5-k5",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "takeaway",
+   "front": "Why does Edit fail on non-unique text?",
+   "back": "Unique matching is a safety mechanism against changing unintended occurrences."
+  },
+  {
+   "id": "2.5-k6",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "takeaway",
+   "front": "How do you trace usage through wrappers and barrel files?",
+   "back": "Grep for the definition, Read the defining file to find exported names, then Grep each exported name across the codebase."
+  },
+  {
+   "id": "2.5-k7",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "takeaway",
+   "front": "Exam answer when Edit reports a non-unique anchor?",
+   "back": "Read the full file, then Write the complete modified version — the exam guide's keyed fallback."
+  },
+  {
+   "id": "2.5-x1",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "trap",
+   "front": "Using Glob to find function callers (it searches paths, not contents)",
+   "back": "Glob matches file paths. Use Grep to search inside files for function names, imports, or error messages."
+  },
+  {
+   "id": "2.5-x2",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "trap",
+   "front": "Using Grep to find files by extension or naming pattern",
+   "back": "Glob is the purpose-built path matcher: **/*.test.tsx, **/config.*."
+  },
+  {
+   "id": "2.5-x3",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "trap",
+   "front": "Reading all source files upfront before understanding what is relevant",
+   "back": "Context-budget killer. Go incremental: Grep for entry points, then Read specific flows."
+  },
+  {
+   "id": "2.5-x4",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "trap",
+   "front": "Defaulting to Read + Write for every file modification instead of trying Edit first",
+   "back": "Edit touches only the specific text and uses less context. Read + Write is the fallback when Edit can't find a unique anchor."
+  },
+  {
+   "id": "2.5-x5",
+   "domain": 2,
+   "lesson": "2.5",
+   "type": "trap",
+   "front": "Answering 'widen old_string or set replace_all' when a question asks what to do after Edit reports a non-unique match",
+   "back": "That's current Claude Code behaviour, but the exam guide names Read + Write as the fallback and keyed answers follow the guide."
+  },
+  {
+   "id": "3.1-k1",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "takeaway",
+   "front": "At what three levels does Claude Code read CLAUDE.md?",
+   "back": "User-level (~/.claude/CLAUDE.md), project-level (.claude/CLAUDE.md or root CLAUDE.md), and directory-level (subdirectory CLAUDE.md files)."
+  },
+  {
+   "id": "3.1-k2",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "takeaway",
+   "front": "How are conflicting rules across multiple CLAUDE.md files handled?",
+   "back": "All discovered files are concatenated into context, not overridden. If two rules contradict, Claude may pick either — CLAUDE.md is not a hard enforcement layer."
+  },
+  {
+   "id": "3.1-k3",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "takeaway",
+   "front": "CLAUDE.md vs settings.json for must-hold rules?",
+   "back": "settings.json rules (and hooks) are enforced by the client regardless of what Claude decides. CLAUDE.md shapes behaviour but doesn't guarantee it."
+  },
+  {
+   "id": "3.1-k4",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "takeaway",
+   "front": "How does @ syntax work in CLAUDE.md?",
+   "back": "A line beginning with @ followed by a path inlines that file at load time. There is no @import keyword — just @path on its own line."
+  },
+  {
+   "id": "3.1-k5",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "takeaway",
+   "front": "What is CLAUDE.local.md?",
+   "back": "Loads after CLAUDE.md at the same level, gitignored by convention. For personal project-scoped tweaks, not team rules."
+  },
+  {
+   "id": "3.1-k6",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "takeaway",
+   "front": "What does /memory do — does it load config?",
+   "back": "It lists loaded CLAUDE.md / CLAUDE.local.md files and opens them in your editor. Diagnostic only; config loads automatically by location."
+  },
+  {
+   "id": "3.1-k7",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "takeaway",
+   "front": "What survives /compact?",
+   "back": "Project-root CLAUDE.md is re-read from disk after compaction. Nested and path-scoped files load on demand and return when Claude next reads a matching file."
+  },
+  {
+   "id": "3.1-k8",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "takeaway",
+   "front": "New team member gets inconsistent Claude Code behaviour on the same repo/branch. Most common root cause?",
+   "back": "Conventions live in the existing dev's user-level ~/.claude/CLAUDE.md, which isn't version-controlled or shared. Move them to project level."
+  },
+  {
+   "id": "3.1-k9",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "takeaway",
+   "front": "Directory-level CLAUDE.md vs .claude/rules/ with paths?",
+   "back": "Directory CLAUDE.md covers one directory. For conventions spanning many directories, use .claude/rules/ with glob patterns in YAML frontmatter."
+  },
+  {
+   "id": "3.1-x1",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "trap",
+   "front": "New team member not receiving Claude Code instructions despite working on the same repo and branch",
+   "back": "Instructions are in user-level config (~/.claude/CLAUDE.md), not shared via git. Move them to .claude/CLAUDE.md for team-wide application."
+  },
+  {
+   "id": "3.1-x2",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "trap",
+   "front": "Thinking /memory triggers configuration loading",
+   "back": "/memory is diagnostic — shows which files are loaded. Config loads automatically based on location in the hierarchy."
+  },
+  {
+   "id": "3.1-x3",
+   "domain": 3,
+   "lesson": "3.1",
+   "type": "trap",
+   "front": "Assuming directory-level CLAUDE.md is the best solution for cross-directory conventions",
+   "back": "Directory CLAUDE.md applies to one directory. For conventions spanning many (e.g., test files everywhere), use .claude/rules/ with glob patterns."
+  },
+  {
+   "id": "3.2-k1",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "takeaway",
+   "front": "What is a skill and how is it invoked?",
+   "back": "A named, reusable set of instructions in Markdown with optional YAML frontmatter. Invoked as a slash command (/review) or auto-loaded when a request matches its description."
+  },
+  {
+   "id": "3.2-k2",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "takeaway",
+   "front": ".claude/skills/ vs .claude/commands/ — structure?",
+   "back": "Skill = directory with SKILL.md (.claude/skills/deploy/SKILL.md). Command = flat file (.claude/commands/deploy.md). .claude/skills/ is canonical."
+  },
+  {
+   "id": "3.2-k3",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "takeaway",
+   "front": "Key scoping distinction in Claude Code config?",
+   "back": "Project-scoped (.claude/) = version-controlled, shared via git. User-scoped (~/.claude/) = personal, not shared. Applies to CLAUDE.md, commands/skills, and rules."
+  },
+  {
+   "id": "3.2-k4",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "takeaway",
+   "front": "When do you use context: fork in skill frontmatter?",
+   "back": "For skills producing verbose output (codebase analysis, brainstorming) — runs in an isolated sub-agent context so the main conversation stays clean."
+  },
+  {
+   "id": "3.2-k5",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "takeaway",
+   "front": "What does allowed-tools do in skill frontmatter (exam v1.0)?",
+   "back": "Restricts which tools the skill can use. (Current Claude Code pre-approves the listed tools for promptless use.)"
+  },
+  {
+   "id": "3.2-k6",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "takeaway",
+   "front": "What is argument-hint?",
+   "back": "An autocomplete label showing expected arguments (e.g., [issue-number]). Makes inputs explicit without interactive prompting."
+  },
+  {
+   "id": "3.2-k7",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "takeaway",
+   "front": "Skills vs CLAUDE.md?",
+   "back": "Skills: on-demand, task-specific workflows loaded when invoked. CLAUDE.md: always-loaded universal standards with no invocation step."
+  },
+  {
+   "id": "3.2-k8",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "takeaway",
+   "front": "Personal variant of a team skill without conflicts?",
+   "back": "Create it in ~/.claude/skills/ under a different name (e.g., /deep-analyse instead of /analyse)."
+  },
+  {
+   "id": "3.2-x1",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "trap",
+   "front": "Creating a flat Markdown file directly inside .claude/skills/ (e.g., .claude/skills/review.md) and expecting a /review command",
+   "back": "A skill must be a directory with SKILL.md (.claude/skills/review/SKILL.md). Flat .md files create commands only under .claude/commands/."
+  },
+  {
+   "id": "3.2-x2",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "trap",
+   "front": "Placing a team-shared command in a user-scoped path (~/.claude/commands/ or ~/.claude/skills/) instead of a project-scoped path",
+   "back": "User-scoped paths are personal and unshared. Team commands go in .claude/skills/ or .claude/commands/ in the repo."
+  },
+  {
+   "id": "3.2-x3",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "trap",
+   "front": "Thinking skills behave like CLAUDE.md for always-on guidance",
+   "back": "Skills load on demand. For always-on conventions the answer is CLAUDE.md or .claude/rules/."
+  },
+  {
+   "id": "3.2-x4",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "trap",
+   "front": "Not knowing when to use context: fork",
+   "back": "Without it, verbose brainstorming/analysis output pollutes the main context window. Use it for exploratory or verbose tasks."
+  },
+  {
+   "id": "3.2-x5",
+   "domain": 3,
+   "lesson": "3.2",
+   "type": "trap",
+   "front": "Putting task-specific workflows in CLAUDE.md",
+   "back": "CLAUDE.md is for always-loaded universal standards. Review workflows, analysis routines, templates → skills."
+  },
+  {
+   "id": "3.3-k1",
+   "domain": 3,
+   "lesson": "3.3",
+   "type": "takeaway",
+   "front": "How do .claude/rules/ files decide when to apply?",
+   "back": "Glob patterns in the YAML frontmatter paths field. They load only when Claude works with files matching those patterns."
+  },
+  {
+   "id": "3.3-k2",
+   "domain": 3,
+   "lesson": "3.3",
+   "type": "takeaway",
+   "front": "Why are path-scoped rules more token-efficient than root CLAUDE.md?",
+   "back": "They load only for matching files; root CLAUDE.md loads every session regardless of what you're editing."
+  },
+  {
+   "id": "3.3-k3",
+   "domain": 3,
+   "lesson": "3.3",
+   "type": "takeaway",
+   "front": "What do path rules solve that directory CLAUDE.md can't?",
+   "back": "Conventions for a file type scattered across many directories — one rule file instead of duplicates in 50+ directories."
+  },
+  {
+   "id": "3.3-k4",
+   "domain": 3,
+   "lesson": "3.3",
+   "type": "takeaway",
+   "front": "How does a glob like **/*.test.tsx provide coverage?",
+   "back": "Matches files anywhere in the codebase regardless of directory depth."
+  },
+  {
+   "id": "3.3-k5",
+   "domain": 3,
+   "lesson": "3.3",
+   "type": "takeaway",
+   "front": "Classic exam scenario for path-specific rules?",
+   "back": "Test files co-located with source across 50+ directories needing consistent conventions → .claude/rules/ with glob paths."
+  },
+  {
+   "id": "3.3-k6",
+   "domain": 3,
+   "lesson": "3.3",
+   "type": "takeaway",
+   "front": "How do you verify which path rules are loaded?",
+   "back": "/context — only rules matching the current file's path appear."
+  },
+  {
+   "id": "3.3-x1",
+   "domain": 3,
+   "lesson": "3.3",
+   "type": "trap",
+   "front": "Choosing directory-level CLAUDE.md over path-specific rules for cross-directory conventions",
+   "back": "For files spread across 50+ directories, glob-scoped rules are correct; directory CLAUDE.md would need a file in every directory."
+  },
+  {
+   "id": "3.3-x2",
+   "domain": 3,
+   "lesson": "3.3",
+   "type": "trap",
+   "front": "Placing file-type-specific conventions in root CLAUDE.md",
+   "back": "Root CLAUDE.md loads every session — Terraform rules eat tokens while editing React. Path rules load only for matching files."
+  },
+  {
+   "id": "3.3-x3",
+   "domain": 3,
+   "lesson": "3.3",
+   "type": "trap",
+   "front": "Confusing skills with path-specific rules for automatic convention application",
+   "back": "Rules stay in context as background guidance when a matching file is read, shaping every edit. Skills load on demand as task workflows. Automatic always-on conventions for a file type → path rules."
+  },
+  {
+   "id": "3.4-k1",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "takeaway",
+   "front": "When do you choose plan mode?",
+   "back": "Complex tasks needing exploration, comparison of approaches, architectural decisions, multi-file changes, or dependency understanding before implementing."
+  },
+  {
+   "id": "3.4-k2",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "takeaway",
+   "front": "When is direct execution right?",
+   "back": "Well-scoped change, approach already known, limited to a single file/function, no design decisions."
+  },
+  {
+   "id": "3.4-k3",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "takeaway",
+   "front": "How do you enter plan mode?",
+   "back": "claude --permission-mode plan, Shift+Tab until status shows plan mode, or prefix a prompt with /plan. Writing 'plan mode' in the prompt body does nothing."
+  },
+  {
+   "id": "3.4-k4",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "takeaway",
+   "front": "What is the Explore subagent for?",
+   "back": "Isolates verbose discovery output from the main conversation, returning summaries and keeping context clean for implementation."
+  },
+  {
+   "id": "3.4-k5",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "takeaway",
+   "front": "What is the hybrid pattern?",
+   "back": "Plan-then-execute: plan mode for investigation and strategy, then direct execution to implement consistently (e.g., library migrations)."
+  },
+  {
+   "id": "3.4-k6",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "takeaway",
+   "front": "What does the plan-vs-direct choice hinge on?",
+   "back": "Ambiguity, not difficulty. A hard but well-defined bug fix → direct. A simple-sounding feature with multiple approaches across modules → plan."
+  },
+  {
+   "id": "3.4-k7",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "takeaway",
+   "front": "Choose plan mode upfront, or wait for complexity to emerge?",
+   "back": "Upfront when complexity is stated in the requirements — it's known, not speculative."
+  },
+  {
+   "id": "3.4-x1",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "trap",
+   "front": "Defaulting to direct execution for multi-file architectural changes",
+   "back": "Multiple valid approaches across many files need plan mode; direct execution risks costly rework."
+  },
+  {
+   "id": "3.4-x2",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "trap",
+   "front": "Using plan mode for a single-file bug fix with a clear stack trace",
+   "back": "Known cause, location, and fix → direct execution. Plan mode is unnecessary overhead."
+  },
+  {
+   "id": "3.4-x3",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "trap",
+   "front": "Not recognising the plan-then-execute hybrid pattern",
+   "back": "Combine plan mode for investigation with direct execution for implementation."
+  },
+  {
+   "id": "3.4-x4",
+   "domain": 3,
+   "lesson": "3.4",
+   "type": "trap",
+   "front": "Starting direct execution and switching to plan mode only when complexity emerges",
+   "back": "If complexity is already stated (e.g., monolith restructuring), choose plan mode upfront."
+  },
+  {
+   "id": "3.5-k1",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "takeaway",
+   "front": "Claude Code interprets a prose description inconsistently. First technique?",
+   "back": "Give 2–3 concrete input/output examples of the exact transformation. Examples generalise more reliably than prose."
+  },
+  {
+   "id": "3.5-k2",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "takeaway",
+   "front": "Best technique for complex transformations with many edge cases?",
+   "back": "Test-driven iteration: write tests (happy path, edge cases, performance), share failures for unambiguous feedback."
+  },
+  {
+   "id": "3.5-k3",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "takeaway",
+   "front": "When do you use the interview pattern?",
+   "back": "Unfamiliar domain where you might miss considerations — have Claude ask questions before implementing to surface hidden requirements."
+  },
+  {
+   "id": "3.5-k4",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "takeaway",
+   "front": "Multiple issues that interact — how do you give feedback?",
+   "back": "All in a single message, so the model sees every constraint and produces a coherent fix."
+  },
+  {
+   "id": "3.5-k5",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "takeaway",
+   "front": "When should feedback be sequential instead?",
+   "back": "When issues are independent and don't affect each other."
+  },
+  {
+   "id": "3.5-k6",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "takeaway",
+   "front": "Interview pattern vs examples?",
+   "back": "Examples fix inconsistent interpretation when you know the exact transformation. Interview fixes missing requirements in unfamiliar domains."
+  },
+  {
+   "id": "3.5-k7",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "takeaway",
+   "front": "How many examples are enough?",
+   "back": "Two or three well-chosen ones covering the standard case and key edge cases."
+  },
+  {
+   "id": "3.5-x1",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "trap",
+   "front": "Choosing to refine prose descriptions when the model interprets them inconsistently",
+   "back": "Better prose still relies on interpretation. Concrete input/output examples remove ambiguity — examples first."
+  },
+  {
+   "id": "3.5-x2",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "trap",
+   "front": "Not recognising when to batch vs sequence feedback",
+   "back": "Interacting issues → one message. Independent issues → sequential."
+  },
+  {
+   "id": "3.5-x3",
+   "domain": 3,
+   "lesson": "3.5",
+   "type": "trap",
+   "front": "Confusing the interview pattern with the examples technique",
+   "back": "Interview = unfamiliar domain, missing considerations. Examples = known transformation, misinterpreted. Different problems."
+  },
+  {
+   "id": "3.6-k1",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "takeaway",
+   "front": "Which flag makes Claude Code run non-interactively in CI?",
+   "back": "-p (--print): process the prompt, write to stdout, exit — no interactive input."
+  },
+  {
+   "id": "3.6-k2",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "takeaway",
+   "front": "How do you make CI output machine-parseable for PR comments?",
+   "back": "--output-format json with --json-schema; schema-validated data lands in the structured_output field of the JSON envelope."
+  },
+  {
+   "id": "3.6-k3",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "takeaway",
+   "front": "Why is review in a separate session better than self-review?",
+   "back": "The generating session keeps its reasoning context and is biased toward its own decisions. An independent instance judges on merit."
+  },
+  {
+   "id": "3.6-k4",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "takeaway",
+   "front": "How do you avoid duplicate review comments across CI runs?",
+   "back": "Include prior findings in context and instruct Claude to report only new or still-unaddressed issues."
+  },
+  {
+   "id": "3.6-k5",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "takeaway",
+   "front": "How does CLAUDE.md improve CI test generation?",
+   "back": "It documents testing standards, fixtures and review criteria; Claude reads it in CI just like interactively, so tests follow team patterns."
+  },
+  {
+   "id": "3.6-k6",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "takeaway",
+   "front": "Batch API vs real-time in CI?",
+   "back": "Real-time for blocking pre-merge checks. Batch (50% cheaper, up to 24h latency, no SLA) for non-blocking overnight/weekly analysis."
+  },
+  {
+   "id": "3.6-k7",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "takeaway",
+   "front": "--append-system-prompt vs --system-prompt?",
+   "back": "--append-system-prompt adds to the default prompt (keeps tool guidance/safety). --system-prompt replaces it entirely."
+  },
+  {
+   "id": "3.6-k8",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "takeaway",
+   "front": "How do git worktrees help parallel Claude Code sessions?",
+   "back": "Each worktree is a separate directory on its own branch — isolated edits and independent context budgets."
+  },
+  {
+   "id": "3.6-x1",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "trap",
+   "front": "CI pipeline hanging because Claude Code is waiting for interactive input",
+   "back": "Use -p (--print). CLAUDE_HEADLESS=true and --batch don't exist; stdin redirection isn't the documented method."
+  },
+  {
+   "id": "3.6-x2",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "trap",
+   "front": "Assuming self-review in the same session is as effective as independent review",
+   "back": "The same session retains generation reasoning and is less likely to question itself. Use an independent instance."
+  },
+  {
+   "id": "3.6-x3",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "trap",
+   "front": "Using the Batch API for pre-merge CI checks",
+   "back": "Up to 24h processing, no latency SLA. Blocking checks need the real-time API; batch for overnight/weekly."
+  },
+  {
+   "id": "3.6-x4",
+   "domain": 3,
+   "lesson": "3.6",
+   "type": "trap",
+   "front": "Not including prior review findings in subsequent review runs",
+   "back": "Each run starts from scratch and duplicates comments. Include prior findings; report only new/unaddressed issues."
+  },
+  {
+   "id": "4.1-k1",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "takeaway",
+   "front": "Why do vague instructions like \"be conservative\" fail?",
+   "back": "They give no actionable decision boundary — the model can't calibrate what \"conservative\" means across contexts."
+  },
+  {
+   "id": "4.1-k2",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "takeaway",
+   "front": "Correct way to define code-review criteria in a prompt?",
+   "back": "Explicit categorical criteria: exactly what to flag (bugs, security vulnerabilities) and what to skip (style preferences, local patterns)."
+  },
+  {
+   "id": "4.1-k3",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "takeaway",
+   "front": "How do high false positives in one category affect the system?",
+   "back": "They destroy developer trust in ALL categories, even accurate ones — trust bleeds across the whole output."
+  },
+  {
+   "id": "4.1-k4",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "takeaway",
+   "front": "What do you do with a high-false-positive category while iterating?",
+   "back": "Temporarily disable it while refining its prompt, restore trust, then re-enable the improved category."
+  },
+  {
+   "id": "4.1-k5",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "takeaway",
+   "front": "Why define severity levels with code examples rather than prose?",
+   "back": "Prose forces interpretation of subjective concepts; concrete code examples remove ambiguity and give consistent classification."
+  },
+  {
+   "id": "4.1-k6",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "takeaway",
+   "front": "Correct hierarchy for filtering findings?",
+   "back": "Explicit criteria first, confidence-based routing second. Never replace criteria with confidence thresholds."
+  },
+  {
+   "id": "4.1-k7",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "takeaway",
+   "front": "Why is LLM self-reported confidence poor for filtering?",
+   "back": "It's poorly calibrated — often confident about wrong findings and hesitant about right ones. Use it to route to review, not to replace criteria."
+  },
+  {
+   "id": "4.1-x1",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "trap",
+   "front": "Choosing 'be conservative' or 'only report high-confidence findings' as valid prompt improvements",
+   "back": "Vague instructions don't improve precision. Specific categorical criteria for what to flag and skip are correct."
+  },
+  {
+   "id": "4.1-x2",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "trap",
+   "front": "Assuming confidence thresholds fix false positive problems",
+   "back": "Self-reported confidence is poorly calibrated. Explicit criteria with code examples work better; confidence routing only after criteria exist."
+  },
+  {
+   "id": "4.1-x3",
+   "domain": 4,
+   "lesson": "4.1",
+   "type": "trap",
+   "front": "Keeping all review categories active while iterating on high false-positive categories",
+   "back": "FPs in one category destroy trust in all. Temporarily disable problem categories while improving them."
+  },
+  {
+   "id": "4.2-k1",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "takeaway",
+   "front": "Most effective technique for consistent, well-formatted output?",
+   "back": "Few-shot examples — beats more instructions, confidence thresholds, or temperature tweaks."
+  },
+  {
+   "id": "4.2-k2",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "takeaway",
+   "front": "Three triggers that say \"add few-shot examples\"?",
+   "back": "Detailed instructions still give inconsistent formatting; inconsistent judgement on ambiguous cases; extraction returns empty fields for data that exists."
+  },
+  {
+   "id": "4.2-k3",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "takeaway",
+   "front": "How many few-shot examples?",
+   "back": "2–4 targeted examples. Fewer than 2 doesn't set a pattern; more than 4 wastes tokens."
+  },
+  {
+   "id": "4.2-k4",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "takeaway",
+   "front": "What must each example include beyond input→output?",
+   "back": "Reasoning for why that action was chosen over alternatives — so the model generalises the judgement to novel cases."
+  },
+  {
+   "id": "4.2-k5",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "takeaway",
+   "front": "Side effect of few-shot examples on extraction?",
+   "back": "They reduce hallucination by showing how to handle structural variety without inventing data."
+  },
+  {
+   "id": "4.2-k6",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "takeaway",
+   "front": "How do examples reduce false positives in code review?",
+   "back": "Show both what to flag AND what to ignore, so the model separates real issues from benign patterns."
+  },
+  {
+   "id": "4.2-k7",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "takeaway",
+   "front": "When use tool_use + JSON schema instead of few-shot?",
+   "back": "For malformed JSON (syntax). Not for inconsistent formatting or judgement — those are few-shot problems."
+  },
+  {
+   "id": "4.2-x1",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "trap",
+   "front": "Choosing 'add more detailed instructions' when output formatting is inconsistent",
+   "back": "If detailed instructions already exist and output is still inconsistent, more instructions won't help. Few-shot examples of the exact format will."
+  },
+  {
+   "id": "4.2-x2",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "trap",
+   "front": "Thinking few-shot examples only teach literal pattern-matching",
+   "back": "With reasoning included, examples teach the decision principle and generalise to novel patterns."
+  },
+  {
+   "id": "4.2-x3",
+   "domain": 4,
+   "lesson": "4.2",
+   "type": "trap",
+   "front": "Using confidence thresholds to fix inconsistent judgement calls",
+   "back": "Thresholds are poorly calibrated and miss the root cause. Examples showing correct judgement on ambiguous cases fix it directly."
+  },
+  {
+   "id": "4.3-k1",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "takeaway",
+   "front": "Most reliable way to get schema-compliant JSON?",
+   "back": "tool_use with a JSON schema — eliminates JSON syntax errors. Prompt-based JSON can be malformed."
+  },
+  {
+   "id": "4.3-k2",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "takeaway",
+   "front": "What does tool_choice control, and at what scope?",
+   "back": "Whether/how the model calls tools — per request, not per conversation. Modes: auto, any, forced specific tool."
+  },
+  {
+   "id": "4.3-k3",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "takeaway",
+   "front": "When use tool_choice \"any\" for extraction?",
+   "back": "Multiple extraction schemas and unknown document type — must call a tool, model picks which."
+  },
+  {
+   "id": "4.3-k4",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "takeaway",
+   "front": "When use forced tool_choice?",
+   "back": "To guarantee a mandatory first step (e.g., extract_metadata before enrichment). Max control, no flexibility."
+  },
+  {
+   "id": "4.3-k5",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "takeaway",
+   "front": "What does tool_use with a schema NOT prevent?",
+   "back": "Semantic errors: sums that don't match, values in the wrong field, fabricated data. Needs separate validation."
+  },
+  {
+   "id": "4.3-k6",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "takeaway",
+   "front": "How do you design fields to prevent fabrication?",
+   "back": "Make fields optional/nullable when the source may lack the info — allow honest nulls."
+  },
+  {
+   "id": "4.3-k7",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "takeaway",
+   "front": "Schema pattern for genuinely ambiguous cases?",
+   "back": "Add an \"unclear\" enum value so the model isn't forced to classify uncertain data."
+  },
+  {
+   "id": "4.3-k8",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "takeaway",
+   "front": "Schema pattern for extensible categories?",
+   "back": "An \"other\" enum value paired with a freeform detail string."
+  },
+  {
+   "id": "4.3-x1",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "trap",
+   "front": "Believing tool_use with JSON schemas prevents all extraction errors",
+   "back": "It eliminates syntax errors only. Semantic errors — bad sums, wrong fields, fabricated values — need separate validation."
+  },
+  {
+   "id": "4.3-x2",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "trap",
+   "front": "Confusing tool_choice 'auto' with 'any'",
+   "back": "'auto' may return text (no guarantee). 'any' guarantees a tool call but the model chooses which. Unknown doc type + guaranteed structure → 'any'."
+  },
+  {
+   "id": "4.3-x3",
+   "domain": 4,
+   "lesson": "4.3",
+   "type": "trap",
+   "front": "Making all schema fields required to ensure data completeness",
+   "back": "Required fields pressure the model to fabricate when info is absent. Optional/nullable allows honest nulls."
+  },
+  {
+   "id": "4.4-k1",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "takeaway",
+   "front": "What three things go back to the model on a retry?",
+   "back": "The original document, the failed extraction, and the specific validation error."
+  },
+  {
+   "id": "4.4-k2",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "takeaway",
+   "front": "Which errors do retries fix?",
+   "back": "Format mismatches, structural errors, misplaced values, maths errors — where the data exists in the source but was extracted wrongly."
+  },
+  {
+   "id": "4.4-k3",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "takeaway",
+   "front": "When should you NOT retry?",
+   "back": "When info is genuinely absent from the source or needs external knowledge. Flag for human review."
+  },
+  {
+   "id": "4.4-k4",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "takeaway",
+   "front": "How do you build self-correction into the schema?",
+   "back": "Extract both calculated_total and stated_total, plus a conflict_detected boolean to flag contradictions."
+  },
+  {
+   "id": "4.4-k5",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "takeaway",
+   "front": "Schema syntax errors vs semantic errors — what fixes each?",
+   "back": "Syntax (malformed JSON, wrong types) → tool_use. Semantic (wrong sums, misplaced values) → validation logic + retry loop."
+  },
+  {
+   "id": "4.4-k6",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "takeaway",
+   "front": "Role of Pydantic in validate-retry?",
+   "back": "Enforces cross-field business rules a JSON schema can't express, producing per-field error messages the retry feeds back."
+  },
+  {
+   "id": "4.4-k7",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "takeaway",
+   "front": "How do detected_pattern fields improve prompts?",
+   "back": "Track which patterns trigger findings and their dismissal rates; high-dismissal patterns show where to refine the prompt."
+  },
+  {
+   "id": "4.4-k8",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "takeaway",
+   "front": "Why is retry-with-error-feedback better than a naive retry?",
+   "back": "Without the specific error the model repeats its mistake; with it (e.g., 'items sum to £450, stated £500') it corrects precisely."
+  },
+  {
+   "id": "4.4-x1",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "trap",
+   "front": "Assuming retries always work for extraction failures",
+   "back": "Retries can't produce info absent from the source. Distinguish fixable from unfixable."
+  },
+  {
+   "id": "4.4-x2",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "trap",
+   "front": "Implementing retries without including the specific validation error",
+   "back": "Naive retries reproduce the same mistake. The model must see exactly what went wrong."
+  },
+  {
+   "id": "4.4-x3",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "trap",
+   "front": "Relying on schema validation alone without semantic checks",
+   "back": "tool_use catches syntax. Wrong sums, misplaced values, fabrication need validation logic and retries."
+  },
+  {
+   "id": "4.4-x4",
+   "domain": 4,
+   "lesson": "4.4",
+   "type": "trap",
+   "front": "Treating Pydantic as redundant once tool_use enforces a JSON schema",
+   "back": "Schemas can't express cross-field rules (matching sums, date ordering). Pydantic encodes them and gives per-field errors for retries."
+  },
+  {
+   "id": "4.5-k1",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "takeaway",
+   "front": "Message Batches API vs synchronous — when each?",
+   "back": "Batch for latency-tolerant work consumed later (overnight reports, weekly audits). Synchronous for blocking workflows where someone waits."
+  },
+  {
+   "id": "4.5-k2",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "takeaway",
+   "front": "Key constraints of the Message Batches API?",
+   "back": "50% cost savings, up to 24h processing, no latency SLA, no multi-turn tool calling within a request, custom_id for correlation."
+  },
+  {
+   "id": "4.5-k3",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "takeaway",
+   "front": "How do you correlate batch requests with responses?",
+   "back": "Each request has a unique custom_id that appears on its result."
+  },
+  {
+   "id": "4.5-k4",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "takeaway",
+   "front": "Failure-handling pattern for batches?",
+   "back": "Identify failures by custom_id, resubmit only those with targeted changes (chunking, simpler prompt, examples). Refine prompts on a sample set first."
+  },
+  {
+   "id": "4.5-k5",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "takeaway",
+   "front": "How often to submit batches for a 30-hour SLA?",
+   "back": "SLA − 24h max window = 6h buffer. Submit every ~4 hours so a fresh batch is always in flight."
+  },
+  {
+   "id": "4.5-k6",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "takeaway",
+   "front": "Why refine the prompt on a sample before a big batch?",
+   "back": "90% first-pass on 1,000 docs = 100 retries; 60% = 400 retries — 4× the resubmission cost."
+  },
+  {
+   "id": "4.5-k7",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "takeaway",
+   "front": "What happens if a batch exceeds 24 hours?",
+   "back": "It comes back expired — treat as failure and resubmit. Design for the worst case."
+  },
+  {
+   "id": "4.5-k8",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "takeaway",
+   "front": "Can the batch API do multi-turn tool calling?",
+   "back": "No. Workflows needing tool execution mid-request must use the synchronous API."
+  },
+  {
+   "id": "4.5-x1",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "trap",
+   "front": "Switching all workflows to batch processing for cost savings",
+   "back": "Blocking workflows must stay synchronous — batch has no SLA and can take 24h."
+  },
+  {
+   "id": "4.5-x2",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "trap",
+   "front": "Assuming batch results arrive quickly because they often do",
+   "back": "No latency SLA. Design around the 24-hour maximum, not best case."
+  },
+  {
+   "id": "4.5-x3",
+   "domain": 4,
+   "lesson": "4.5",
+   "type": "trap",
+   "front": "Using batch API for workflows requiring multi-turn tool calling",
+   "back": "Not supported within a single request. Use the synchronous API."
+  },
+  {
+   "id": "4.6-k1",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "takeaway",
+   "front": "Why is same-session self-review weak?",
+   "back": "The model keeps its original reasoning chain and is less likely to question its decisions. An independent instance approaches it fresh."
+  },
+  {
+   "id": "4.6-k2",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "takeaway",
+   "front": "Three symptoms of attention dilution in single-pass multi-file reviews?",
+   "back": "Deep feedback on some files, superficial on others; obvious bugs missed mid-review; the same pattern flagged differently across files."
+  },
+  {
+   "id": "4.6-k3",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "takeaway",
+   "front": "How should large reviews be structured?",
+   "back": "Pass 1: per-file local analysis (focused attention). Pass 2: cross-file integration (data flow, contradictions, dependency conflicts)."
+  },
+  {
+   "id": "4.6-k4",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "takeaway",
+   "front": "Why doesn't a bigger context window fix attention dilution?",
+   "back": "It's attention quality, not capacity — more text fits but attention is still uneven."
+  },
+  {
+   "id": "4.6-k5",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "takeaway",
+   "front": "Calibrated thresholds vs raw self-reported confidence?",
+   "back": "Raw confidence is uncalibrated. Calibrated thresholds are validated against labelled sets with known accuracy — usable for routing."
+  },
+  {
+   "id": "4.6-k6",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "takeaway",
+   "front": "Five-step production review architecture?",
+   "back": "Generation → per-file review (independent instances) → integration review → confidence routing of low-confidence findings to humans → calibration loop against labelled sets."
+  },
+  {
+   "id": "4.6-x1",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "trap",
+   "front": "Choosing self-review in the same session as a viable review strategy",
+   "back": "The model retains generation reasoning. An independent instance catches far more subtle issues."
+  },
+  {
+   "id": "4.6-x2",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "trap",
+   "front": "Using a single pass for large multi-file reviews",
+   "back": "Inconsistent depth, missed bugs, contradictory findings. Split into per-file passes plus an integration pass."
+  },
+  {
+   "id": "4.6-x3",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "trap",
+   "front": "Switching to a larger context window model to fix attention dilution",
+   "back": "Bigger windows don't fix attention quality. Focused per-file passes do."
+  },
+  {
+   "id": "4.6-x4",
+   "domain": 4,
+   "lesson": "4.6",
+   "type": "trap",
+   "front": "Using uncalibrated confidence scores for automated review routing",
+   "back": "Calibrate thresholds on labelled validation sets before routing on confidence."
+  },
+  {
+   "id": "5.1-k1",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "takeaway",
+   "front": "What is the persistent case facts block?",
+   "back": "Transactional facts (amounts, dates, order numbers) extracted into a structured block included in every prompt, outside summarised history — so summarisation can't destroy them."
+  },
+  {
+   "id": "5.1-k2",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "takeaway",
+   "front": "Why does progressive summarisation fail for customer support?",
+   "back": "It systematically destroys the most critical info: numbers, dates, percentages, customer-stated expectations."
+  },
+  {
+   "id": "5.1-k3",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "takeaway",
+   "front": "How do you address 'lost in the middle' in aggregated inputs?",
+   "back": "Put a key-findings summary at the beginning and organise details under explicit section headers. Structural fix, not a prompt reminder."
+  },
+  {
+   "id": "5.1-k4",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "takeaway",
+   "front": "Why trim tool results before they enter history?",
+   "back": "A 40+ field result is re-sent every turn as history grows. Trim to relevant fields first."
+  },
+  {
+   "id": "5.1-k5",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "takeaway",
+   "front": "Why can't you selectively truncate conversation history?",
+   "back": "The API is stateless — each request needs the complete history for coherence. Use case-facts blocks and summarisation instead."
+  },
+  {
+   "id": "5.1-k6",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "takeaway",
+   "front": "Upstream fix for context waste in multi-agent systems?",
+   "back": "Make upstream agents return structured data (key facts, citations, relevance scores) instead of verbose reasoning and raw content."
+  },
+  {
+   "id": "5.1-k7",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "takeaway",
+   "front": "Role of prompt caching?",
+   "back": "Mark a stable prefix with a cache_control breakpoint; subsequent requests pay a fraction for cached tokens instead of reprocessing."
+  },
+  {
+   "id": "5.1-x1",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "trap",
+   "front": "Thinking progressive summarisation is safe for transactional data",
+   "back": "Summarisation destroys numbers, dates, and identifiers. Keep them in a persistent case facts block outside summarised history."
+  },
+  {
+   "id": "5.1-x2",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "trap",
+   "front": "Assuming the 'lost in the middle' effect is solved by telling the model to pay attention to everything",
+   "back": "The fix is structural: key findings first, explicit section headers. Prompt reminders are unreliable for position effects."
+  },
+  {
+   "id": "5.1-x3",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "trap",
+   "front": "Keeping full tool results in context because 'the model might need them later'",
+   "back": "Untrimmed 40+ field results exhaust the budget across turns. Trim before they enter history."
+  },
+  {
+   "id": "5.1-x4",
+   "domain": 5,
+   "lesson": "5.1",
+   "type": "trap",
+   "front": "Believing conversation history can be selectively truncated without consequences",
+   "back": "The API is stateless; truncation breaks coherence. Use case facts blocks and summarisation instead."
+  },
+  {
+   "id": "5.2-k1",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "takeaway",
+   "front": "Three valid escalation triggers?",
+   "back": "Explicit request for a human (honour immediately); policy exceptions/gaps (not violations); inability to make meaningful progress after a genuine attempt."
+  },
+  {
+   "id": "5.2-k2",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "takeaway",
+   "front": "Why is sentiment-based escalation unreliable?",
+   "back": "Frustration doesn't correlate with complexity. Furious + simple issue = resolvable; calm + policy gap = escalate."
+  },
+  {
+   "id": "5.2-k3",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "takeaway",
+   "front": "Why is self-reported confidence a poor escalation signal?",
+   "back": "It's poorly calibrated — confidently wrong on hard cases, needlessly unsure on easy ones. (A separate classifier score can be a valid trigger.)"
+  },
+  {
+   "id": "5.2-k4",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "takeaway",
+   "front": "Frustrated customer, straightforward issue — what do you do?",
+   "back": "Acknowledge the frustration and offer the resolution. Escalate only if they then explicitly ask for a human."
+  },
+  {
+   "id": "5.2-k5",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "takeaway",
+   "front": "Customer explicitly asks for a human?",
+   "back": "Escalate immediately — no investigation, no 'let me try first'. Absolute rule."
+  },
+  {
+   "id": "5.2-k6",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "takeaway",
+   "front": "Name search returns multiple customer records?",
+   "back": "Ask for disambiguating identifiers (email, phone, order number). Never pick by heuristic like most recent/most active."
+  },
+  {
+   "id": "5.2-k7",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "takeaway",
+   "front": "Proportionate first fix for poor escalation calibration?",
+   "back": "Add explicit escalation criteria with few-shot examples to the system prompt — before any architectural change."
+  },
+  {
+   "id": "5.2-k8",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "takeaway",
+   "front": "Policy violation vs policy gap?",
+   "back": "Violation: policy has an answer (outside return window = no). Gap: policy is silent → needs human judgement → escalate."
+  },
+  {
+   "id": "5.2-x1",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "trap",
+   "front": "Sentiment-based escalation seems reasonable but is fundamentally unreliable",
+   "back": "Frustration ≠ complexity. Furious + simple late delivery is easy; calm + policy gap needs escalation."
+  },
+  {
+   "id": "5.2-x2",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "trap",
+   "front": "Self-reported confidence scores provide a reliable escalation signal",
+   "back": "LLM self-confidence is poorly calibrated — exactly the failure mode the exam tests."
+  },
+  {
+   "id": "5.2-x3",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "trap",
+   "front": "Attempting to resolve before honouring an explicit human request",
+   "back": "'I want a human' → escalate immediately. Absolute rule."
+  },
+  {
+   "id": "5.2-x4",
+   "domain": 5,
+   "lesson": "5.2",
+   "type": "trap",
+   "front": "Selecting from ambiguous customer matches using the most recent or most active record",
+   "back": "Risks privacy violations and wrong actions. Ask for additional identifiers."
+  },
+  {
+   "id": "5.3-k1",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "takeaway",
+   "front": "Four elements of structured error context from a failed subagent?",
+   "back": "Failure type (transient/validation/business/permission), what was attempted (query, params, target), partial results gathered, potential alternative approaches."
+  },
+  {
+   "id": "5.3-k2",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "takeaway",
+   "front": "Why is silent suppression the worst anti-pattern?",
+   "back": "Empty results marked success → coordinator thinks it searched and found nothing → no retry or alternatives, invisible gaps in output."
+  },
+  {
+   "id": "5.3-k3",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "takeaway",
+   "front": "Workflow termination vs intelligent recovery?",
+   "back": "Termination kills the pipeline on one failure, discarding others' good results. Recovery uses structured error context to retry, try alternatives, or proceed with partial results."
+  },
+  {
+   "id": "5.3-k4",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "takeaway",
+   "front": "Access failure vs valid empty result?",
+   "back": "Access failure: couldn't reach the source (timeout, permission) → may retry. Valid empty: query ran, no matches → that IS the answer; don't retry."
+  },
+  {
+   "id": "5.3-k5",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "takeaway",
+   "front": "When should a subagent propagate an error?",
+   "back": "Only after local recovery for transient failures (retry, fallback, degraded response) fails — include what was attempted and partial results."
+  },
+  {
+   "id": "5.3-k6",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "takeaway",
+   "front": "What are coverage annotations for?",
+   "back": "Marking which areas are well-supported vs have gaps from unavailable sources, instead of silently omitting topics."
+  },
+  {
+   "id": "5.3-k7",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "takeaway",
+   "front": "What does the coordinator do with structured error context?",
+   "back": "Assess failure type and partial results, then retry with modified params, try an alternative, proceed with partial results, or escalate."
+  },
+  {
+   "id": "5.3-x1",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "trap",
+   "front": "Catching a timeout and returning empty results marked as successful",
+   "back": "Silent suppression blocks all recovery — the coordinator never tries alternatives. Worst anti-pattern."
+  },
+  {
+   "id": "5.3-x2",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "trap",
+   "front": "Terminating the entire research pipeline when one subagent times out",
+   "back": "Wastes successful subagents' partial results. Assess and recover in a targeted way."
+  },
+  {
+   "id": "5.3-x3",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "trap",
+   "front": "Returning a generic 'search unavailable' status after retry exhaustion",
+   "back": "Hides the query, partial results and alternatives. Structured error context enables informed recovery."
+  },
+  {
+   "id": "5.3-x4",
+   "domain": 5,
+   "lesson": "5.3",
+   "type": "trap",
+   "front": "Retrying a valid empty result because it looks like a failure",
+   "back": "The query succeeded with no matches — that is the answer. Retrying always returns nothing."
+  },
+  {
+   "id": "5.4-k1",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "takeaway",
+   "front": "What is context degradation and why doesn't a bigger window fix it?",
+   "back": "As verbose output accumulates, the model loses grip on specific findings and talks about 'typical patterns' instead of the actual classes/methods it found. Attention quality, not token limit."
+  },
+  {
+   "id": "5.4-k2",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "takeaway",
+   "front": "Primary mitigation for context degradation in exploration?",
+   "back": "Scratchpad files that persist key findings outside the conversation."
+  },
+  {
+   "id": "5.4-k3",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "takeaway",
+   "front": "Main benefit of subagent delegation for exploration (beyond parallelism)?",
+   "back": "Context isolation — subagents absorb verbose exploration; the main agent's context stays clean for coordination."
+  },
+  {
+   "id": "5.4-k4",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "takeaway",
+   "front": "What is the cold start problem and its fix?",
+   "back": "Phase 2 subagents redo Phase 1 exploration. Fix: summary injection of Phase 1 findings into Phase 2 prompts."
+  },
+  {
+   "id": "5.4-k5",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "takeaway",
+   "front": "When should /compact be used?",
+   "back": "Proactively during extended sessions to maintain quality — not only as a last resort at the limit."
+  },
+  {
+   "id": "5.4-k6",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "takeaway",
+   "front": "What goes in a crash-recovery state manifest?",
+   "back": "Session ID, current phase, explored paths, key findings, next steps."
+  },
+  {
+   "id": "5.4-k7",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "takeaway",
+   "front": "How does context degradation show up in behaviour?",
+   "back": "Generic references instead of the specific class names, methods, and dependency chains discovered earlier."
+  },
+  {
+   "id": "5.4-x1",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "trap",
+   "front": "Increasing the context window to solve context degradation",
+   "back": "It's not about running out of tokens; a larger window still fills with verbose output."
+  },
+  {
+   "id": "5.4-x2",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "trap",
+   "front": "Assuming subagent delegation is only about parallelisation",
+   "back": "The primary benefit for exploration is context isolation."
+  },
+  {
+   "id": "5.4-x3",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "trap",
+   "front": "Restarting a session to fix context degradation without saving state",
+   "back": "Loses all knowledge. Persist findings in scratchpads/state manifests first, then inject them."
+  },
+  {
+   "id": "5.4-x4",
+   "domain": 5,
+   "lesson": "5.4",
+   "type": "trap",
+   "front": "Using /compact only when hitting context limits",
+   "back": "Use it proactively to maintain context quality."
+  },
+  {
+   "id": "5.5-k1",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "takeaway",
+   "front": "Why are aggregate accuracy metrics dangerous for automation decisions?",
+   "back": "97% overall can hide 40% accuracy on a particular document type — teams over-automate."
+  },
+  {
+   "id": "5.5-k2",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "takeaway",
+   "front": "What must you validate before automating extractions?",
+   "back": "Accuracy by document type AND field segment — never aggregate alone."
+  },
+  {
+   "id": "5.5-k3",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "takeaway",
+   "front": "Why sample high-confidence extractions?",
+   "back": "They're automated and unreviewed. Only stratified sampling of them detects novel error patterns."
+  },
+  {
+   "id": "5.5-k4",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "takeaway",
+   "front": "Raw confidence vs actual accuracy?",
+   "back": "Uncalibrated: 0.90 might mean 94% on dates but 82% on amounts."
+  },
+  {
+   "id": "5.5-k5",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "takeaway",
+   "front": "How is confidence calibrated?",
+   "back": "Labelled validation sets with ground truth → compare confidence to actual accuracy → calibration curves per field type per document type."
+  },
+  {
+   "id": "5.5-k6",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "takeaway",
+   "front": "How do you allocate limited reviewer capacity?",
+   "back": "Highest-uncertainty items first (low-confidence fields, historically problematic doc types) — not evenly."
+  },
+  {
+   "id": "5.5-k7",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "takeaway",
+   "front": "Correct sequence before reducing human review?",
+   "back": "Measure accuracy by segment → calibrate confidence → set calibrated thresholds → stratified sampling → reduce review only on validated segments."
+  },
+  {
+   "id": "5.5-x1",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "trap",
+   "front": "Using aggregate accuracy (e.g., 97%) to justify automating all high-confidence extractions",
+   "back": "Aggregates hide per-type failures. Validate by document type and field segment."
+  },
+  {
+   "id": "5.5-x2",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "trap",
+   "front": "Only sampling low-confidence extractions for human review",
+   "back": "Novel errors in automated high-confidence items are only caught by stratified sampling of those items."
+  },
+  {
+   "id": "5.5-x3",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "trap",
+   "front": "Using raw model confidence scores without calibration",
+   "back": "0.90 means different accuracy per field. Calibrate on labelled sets."
+  },
+  {
+   "id": "5.5-x4",
+   "domain": 5,
+   "lesson": "5.5",
+   "type": "trap",
+   "front": "Spreading reviewer capacity evenly across all extractions",
+   "back": "Wastes time on high-confidence items. Prioritise the highest-uncertainty items."
+  },
+  {
+   "id": "5.6-k1",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "takeaway",
+   "front": "Five components every claim should carry in multi-agent research?",
+   "back": "Claim, source URL, document name, relevant excerpt, publication date."
+  },
+  {
+   "id": "5.6-k2",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "takeaway",
+   "front": "Why does attribution fail in synthesis?",
+   "back": "Synthesis agents compress and paraphrase; without explicit instructions to preserve claim–source mappings, attribution dies."
+  },
+  {
+   "id": "5.6-k3",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "takeaway",
+   "front": "Two credible sources conflict. What does synthesis do?",
+   "back": "Annotate both values with full attribution and dates; let the consumer decide. Don't pick one."
+  },
+  {
+   "id": "5.6-k4",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "takeaway",
+   "front": "Why are publication dates critical?",
+   "back": "Different dates often explain different numbers as a trend, not a contradiction."
+  },
+  {
+   "id": "5.6-k5",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "takeaway",
+   "front": "How should synthesis render different content types?",
+   "back": "Financial data as tables, news as prose, technical findings as structured lists."
+  },
+  {
+   "id": "5.6-k6",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "takeaway",
+   "front": "Where in the pipeline is attribution most often lost?",
+   "back": "At the synthesis step — its prompt must require every claim to be traceable."
+  },
+  {
+   "id": "5.6-k7",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "takeaway",
+   "front": "Analysis agent hits conflicting field values?",
+   "back": "Complete the analysis with both values preserved and annotated; the coordinator/consumer resolves."
+  },
+  {
+   "id": "5.6-x1",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "trap",
+   "front": "Selecting the most recent source when two credible sources conflict",
+   "back": "Picking one destroys information. Annotate both with attribution and dates."
+  },
+  {
+   "id": "5.6-x2",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "trap",
+   "front": "Assuming different numbers from different sources are contradictions",
+   "back": "Different collection dates often explain them. Require dates in structured outputs."
+  },
+  {
+   "id": "5.6-x3",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "trap",
+   "front": "Allowing the synthesis agent to paraphrase without preserving claim-source mappings",
+   "back": "Attribution dies in summarisation. Synthesis must preserve and merge mappings."
+  },
+  {
+   "id": "5.6-x4",
+   "domain": 5,
+   "lesson": "5.6",
+   "type": "trap",
+   "front": "Rendering all content types in a uniform format (all prose, all tables, or all lists)",
+   "back": "Tables for financials, prose for news, lists for technical findings."
+  },
+  {
+   "id": "r1-1",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "\"guaranteed\" / \"must always\" / \"enforce\"",
+   "back": "Hooks (programmatic enforcement), not prompts"
+  },
+  {
+   "id": "r1-2",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "\"flexibility\" / \"adapt\" / \"unexpected\"",
+   "back": "Model-driven decisions"
+  },
+  {
+   "id": "r1-3",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "\"independent subtasks\"",
+   "back": "Parallel (multiple Task calls in one response)"
+  },
+  {
+   "id": "r1-4",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "\"each step needs prior output\"",
+   "back": "Sequential"
+  },
+  {
+   "id": "r1-5",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "\"premature termination\"",
+   "back": "Check stop_reason correctly"
+  },
+  {
+   "id": "r1-6",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "\"runaway agent\"",
+   "back": "Iteration cap as a safety net"
+  },
+  {
+   "id": "r1-7",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "\"share context between agents\"",
+   "back": "Explicit passing only — no shared memory"
+  },
+  {
+   "id": "r1-8",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "\"complex task, unknown structure\"",
+   "back": "Dynamic adaptive decomposition"
+  },
+  {
+   "id": "r1-9",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "\"compliance / regulatory / audit\"",
+   "back": "Programmatic enforcement"
+  },
+  {
+   "id": "r1-10",
+   "domain": 1,
+   "lesson": "QR1",
+   "type": "rule",
+   "front": "Escalation: classifier score vs agent self-reported confidence",
+   "back": "Classifier scores are valid triggers; self-reported confidence is not"
+  },
+  {
+   "id": "r2-1",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "Claude keeps picking the wrong tool (small toolkit)",
+   "back": "Improve tool descriptions"
+  },
+  {
+   "id": "r2-2",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "Claude keeps picking the wrong tool (20+ tools)",
+   "back": "Split by role or consolidate — not descriptions"
+  },
+  {
+   "id": "r2-3",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "Guaranteed structured output",
+   "back": "Forced tool_choice for one known schema; tool_choice: any across multiple"
+  },
+  {
+   "id": "r2-4",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "Model should decide whether/which tool",
+   "back": "tool_choice: auto"
+  },
+  {
+   "id": "r2-5",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "Must call a tool but can choose which",
+   "back": "tool_choice: any"
+  },
+  {
+   "id": "r2-6",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "Search returned no results",
+   "back": "Valid empty result — accept it"
+  },
+  {
+   "id": "r2-7",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "API returned 401 / timeout",
+   "back": "Access failure — retry or escalate"
+  },
+  {
+   "id": "r2-8",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "Need a custom MCP server",
+   "back": "Check community servers first"
+  },
+  {
+   "id": "r2-9",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "Project-wide MCP config",
+   "back": "`.mcp.json` in project root"
+  },
+  {
+   "id": "r2-10",
+   "domain": 2,
+   "lesson": "QR2",
+   "type": "rule",
+   "front": "Personal MCP config",
+   "back": "`~/.claude.json`"
+  },
+  {
+   "id": "r3-1",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Guaranteed enforcement, cannot be bypassed",
+   "back": "Hooks (PreToolUse / PostToolUse) or settings"
+  },
+  {
+   "id": "r3-2",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Style guidance, preferred approach",
+   "back": "Instructions in CLAUDE.md"
+  },
+  {
+   "id": "r3-3",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Applies only to specific file paths",
+   "back": "`.claude/rules/` with paths frontmatter"
+  },
+  {
+   "id": "r3-4",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Reusable workflow with restricted tools",
+   "back": "Skills (`.claude/skills/<name>/SKILL.md`)"
+  },
+  {
+   "id": "r3-5",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Prompt template with arguments",
+   "back": "Commands (`.claude/commands/`)"
+  },
+  {
+   "id": "r3-6",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "CI/CD pipeline, automated, non-interactive",
+   "back": "-p flag"
+  },
+  {
+   "id": "r3-7",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Extra rules but keep default coding behaviour",
+   "back": "--append-system-prompt (not --system-prompt)"
+  },
+  {
+   "id": "r3-8",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Fast scripted run, skip project config/hooks/skills",
+   "back": "--bare"
+  },
+  {
+   "id": "r3-9",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Machine-parseable / schema-validated CI output",
+   "back": "--output-format json + --json-schema"
+  },
+  {
+   "id": "r3-10",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Review quality of generated code",
+   "back": "Independent session (not the writing session)"
+  },
+  {
+   "id": "r3-11",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Multiple approaches, complex task",
+   "back": "Plan mode first"
+  },
+  {
+   "id": "r3-12",
+   "domain": 3,
+   "lesson": "QR3",
+   "type": "rule",
+   "front": "Personal preference, not shared",
+   "back": "`~/.claude/` (user-level config)"
+  },
+  {
+   "id": "r4-1",
+   "domain": 4,
+   "lesson": "QR4",
+   "type": "rule",
+   "front": "Guaranteed schema compliance",
+   "back": "Forced tool_choice with a specific tool; tool_choice: any when document type unknown"
+  },
+  {
+   "id": "r4-2",
+   "domain": 4,
+   "lesson": "QR4",
+   "type": "rule",
+   "front": "Output sometimes has wrong format",
+   "back": "Add few-shot examples (2–4)"
+  },
+  {
+   "id": "r4-3",
+   "domain": 4,
+   "lesson": "QR4",
+   "type": "rule",
+   "front": "Model fabricates missing data",
+   "back": "Make schema fields optional/nullable"
+  },
+  {
+   "id": "r4-4",
+   "domain": 4,
+   "lesson": "QR4",
+   "type": "rule",
+   "front": "Validation failed, need to fix",
+   "back": "Retry-with-error-feedback (original + failed extraction + error)"
+  },
+  {
+   "id": "r4-5",
+   "domain": 4,
+   "lesson": "QR4",
+   "type": "rule",
+   "front": "50% cost reduction, bulk processing",
+   "back": "Batch API"
+  },
+  {
+   "id": "r4-6",
+   "domain": 4,
+   "lesson": "QR4",
+   "type": "rule",
+   "front": "Real-time, user-facing / blocking",
+   "back": "NOT Batch — use synchronous API"
+  },
+  {
+   "id": "r4-7",
+   "domain": 4,
+   "lesson": "QR4",
+   "type": "rule",
+   "front": "Model reviewing its own output",
+   "back": "Separate instance (not same session)"
+  },
+  {
+   "id": "r4-8",
+   "domain": 4,
+   "lesson": "QR4",
+   "type": "rule",
+   "front": "Large multi-file input, missing details",
+   "back": "Per-file passes + cross-file integration pass"
+  },
+  {
+   "id": "r4-9",
+   "domain": 4,
+   "lesson": "QR4",
+   "type": "rule",
+   "front": "Instructions alone aren't working",
+   "back": "Add few-shot examples"
+  },
+  {
+   "id": "r5-1",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "Details lost over a long conversation",
+   "back": "Persistent case-facts block, not progressive summarisation"
+  },
+  {
+   "id": "r5-2",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "Findings need to survive context reset",
+   "back": "Scratchpad files for external persistence"
+  },
+  {
+   "id": "r5-3",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "Tool returned nothing",
+   "back": "Distinguish valid empty (accept) from access failure (retry)"
+  },
+  {
+   "id": "r5-4",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "High overall accuracy, users report errors",
+   "back": "Stratified validation — check per-type accuracy"
+  },
+  {
+   "id": "r5-5",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "Sources disagree",
+   "back": "Annotate both with provenance and dates"
+  },
+  {
+   "id": "r5-6",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "Generic error message received",
+   "back": "Replace with structured error context"
+  },
+  {
+   "id": "r5-7",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "Model contradicts itself / stale context",
+   "back": "Fresh start with summary injection"
+  },
+  {
+   "id": "r5-8",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "Inline citations lost after processing",
+   "back": "Structured claim–source mappings"
+  },
+  {
+   "id": "r5-9",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "Stable metrics but quality complaints",
+   "back": "Track per-type error rates, not aggregates"
+  },
+  {
+   "id": "r5-10",
+   "domain": 5,
+   "lesson": "QR5",
+   "type": "rule",
+   "front": "Long task exceeds context window",
+   "back": "Scratchpad files and context boundary management"
+  }
+ ]
+}
